@@ -47,6 +47,7 @@
         <button class="btn btn-category" onclick="startQuiz('phrasal_obj')">Phrasal Verbs - Objective</button>
         <button class="btn btn-category" onclick="startQuiz('prepositions')">Prepositions (连词)</button>
         <button class="btn btn-category" onclick="startQuiz('compound_adj')">Compound Adjectives (有 - 的）</button>
+        <button class="btn btn-category" onclick="startQuiz('language_functions')">Lang. Form and Functions</button>
         <p style="text-align: center; color: #999; font-size: 0.8em;">More categories coming soon...</p>
     </div>
 
@@ -54,6 +55,10 @@
         <div id="progress" style="color: var(--primary); font-weight: bold; margin-bottom: 10px;"></div>
         <div id="question-area">
             <div class="btn" style="background: #f9f9f9; cursor: default; border: none;" id="q-text"></div>
+            <div id="q-cn" style="color: #666; margin-bottom: 15px; font-size: 0.9rem;"></div>
+            <div id="tip-container" style="background: #fff9c4; border-left: 5px solid #fbc02d; padding: 10px; margin-bottom: 15px; display: none; font-size: 0.9rem; border-radius: 4px;">
+                <strong>💡 Tip:</strong> <span id="tip-content"></span>
+            </div>
             <div id="options-list"></div>
         </div>
         
@@ -114,12 +119,12 @@
     // Rule: AT (Specific point/time), ON (Days/Dates/Surfaces), IN (Enclosed space/Long periods)
     prepositions: [
         // AT (Time & Place)
-        { q: "The movie starts _______ 8:30 PM sharp.", qCn: "电影在晚上 8:30 准时开始。", a: "at", aCn: "在（具体时间点）", opts: [{t:"in", c:"在...之内"}, {t:"on", c:"在...之上"}], m: "Use 'at' for specific clock times.", mCn: "用于具体的时刻。" },
-        { q: "I will meet you _______ the main entrance of the mall.", qCn: "我会在商场正门口见你。", a: "at", aCn: "在（具体地点）", opts: [{t:"on", c:"在...上面"}, {t:"in", c:"在...里面"}], m: "Use 'at' for a specific point or address.", mCn: "用于具体的地点或坐标。" },
-        { q: "He usually goes for a run _______ dawn.", qCn: "他通常在黎明时分去跑步。", a: "at", aCn: "在（特定时刻）", opts: [{t:"on", c:"在...那天"}, {t:"in", c:"在...期间"}], m: "Use 'at' for specific points in the day (noon, midnight, dawn).", mCn: "用于一天中特定的时刻。" },
-        { q: "I am currently _______ work, so I can't talk right now.", qCn: "我目前在上班，所以现在不能说话。", a: "at", aCn: "在（活动中/地点）", opts: [{t:"in", c:"在...内"}, {t:"on", c:"在...上"}], m: "Use 'at' for functional buildings or activities (work, school, home).", mCn: "用于功能性地点或正在进行的活动。" },
-        { q: "Let's discuss this _______ lunchtime.", qCn: "让我们在午饭时间讨论这件事。", a: "at", aCn: "在（用餐时间）", opts: [{t:"in", c:"在...里"}, {t:"on", c:"在...上"}], m: "Use 'at' for mealtimes.", mCn: "用于用餐时间。" },
-        // ... (Adding more variations for AT)
+        { q: "The movie starts _______ 8:30 PM sharp.", qCn: "电影在晚上 8:30 准时开始。", a: "at", aCn: "在（具体时间点）", opts: [{t:"in", c:"在...之内"}, {t:"on", c:"在...之上"}], tip: "📍 [点逻辑]：At 用于具体的时刻 (Clock time) 或具体的地理点。", m: "Use 'at' for specific clock times.", mCn: "用于具体的时刻。" },
+        { q: "I will meet you _______ the main entrance of the mall.", qCn: "我会在商场正门口见你。", a: "at", aCn: "在（具体地点）", opts: [{t:"on", c:"在...上面"}, {t:"in", c:"在...里面"}], tip: "📍 [点逻辑]：把地点看作地图上的一个‘坐标点’时用 At。", m: "Use 'at' for a specific point or address.", mCn: "用于具体的地点或坐标。" },
+        { q: "He usually goes for a run _______ dawn.", qCn: "他通常在黎明时分去跑步。", a: "at", aCn: "在（特定时刻）", opts: [{t:"on", c:"在...那天"}, {t:"in", c:"在...期间"}], tip: "📍 [点逻辑]：具体的度数、速度或价格通常被视为一个‘值点’。", m: "Use 'at' for specific points in the day (noon, midnight, dawn).", mCn: "用于一天中特定的时刻。" },
+        { q: "I am currently _______ work, so I can't talk right now.", qCn: "我目前在上班，所以现在不能说话。", a: "at", aCn: "在（活动中/地点）", opts: [{t:"in", c:"在...内"}, {t:"on", c:"在...上"}], tip: "📍 [点逻辑]：At 用于具体的时刻 (Clock time) 或具体的地理点。", m: "Use 'at' for functional buildings or activities (work, school, home).", mCn: "用于功能性地点或正在进行的活动。" },
+        { q: "Let's discuss this _______ lunchtime.", qCn: "让我们在午饭时间讨论这件事。", a: "at", aCn: "在（用餐时间）", opts: [{t:"in", c:"在...里"}, {t:"on", c:"在...上"}], tip: "📍 [点逻辑]：具体的度数、速度或价格通常被视为一个‘值点’。", m: "Use 'at' for mealtimes.", mCn: "用于用餐时间。" },
+        
         { q: "The bus stop is right _______ the corner of the street.", qCn: "公车站就在街道转角处。", a: "at", aCn: "在...处", opts: [{t:"in", c:"在...里"}, {t:"on", c:"在...上"}], m: "Specific point.", mCn: "具体位置。" },
         { q: "I wasn't happy _______ first, but now I like it.", qCn: "起初我不开心，但现在我喜欢它了。", a: "at", aCn: "在（最初）", opts: [{t:"in", c:"在..."}, {t:"on", c:"在..."}], m: "Fixed expression: At first.", mCn: "固定搭配：起初。" },
         { q: "We had a party _______ Christmas.", qCn: "我们在圣诞节期间办了个派对。", a: "at", aCn: "在（节日期间）", opts: [{t:"on", c:"在某一天"}, {t:"in", c:"在...内"}], m: "Use 'at' for holiday periods (at Christmas, at Easter).", mCn: "用于整个节日期间（若指某一天则用on）。" },
@@ -127,9 +132,9 @@
         { q: "The water boils _______ 100 degrees Celsius.", qCn: "水在摄氏 100 度沸腾。", a: "at", aCn: "在（具体数值）", opts: [{t:"in", c:"在..."}, {t:"on", c:"在..."}], m: "Use 'at' for specific degrees or speeds.", mCn: "用于具体的温度、速度或数值。" },
 
         // ON (Days/Dates/Surfaces)
-        { q: "My birthday is _______ the 15th of May.", qCn: "我的生日在 5 月 15 日。", a: "on", aCn: "在（具体日期）", opts: [{t:"at", c:"在...点"}, {t:"in", c:"在...月"}], m: "Use 'on' for specific dates.", mCn: "用于具体的日期。" },
-        { q: "We have English class _______ Mondays.", qCn: "我们每周一有英语课。", a: "on", aCn: "在（星期几）", opts: [{t:"at", c:"在..."}, {t:"in", c:"在..."}], m: "Use 'on' for days of the week.", mCn: "用于星期几。" },
-        { q: "The cat is sleeping _______ the sofa.", qCn: "猫在沙发上睡觉。", a: "on", aCn: "在...上面（表面）", opts: [{t:"in", c:"在...里面"}, {t:"at", c:"在...处"}], m: "Use 'on' for surfaces.", mCn: "用于物体的表面。" },
+        { q: "My birthday is _______ the 15th of May.", qCn: "我的生日在 5 月 15 日。", a: "on", aCn: "在（具体日期）", opts: [{t:"at", c:"在...点"}, {t:"in", c:"在...月"}], tip: "📅 [面逻辑]：On 用于具体的某一天或日期。想象日历上的一个小方块。", m: "Use 'on' for specific dates.", mCn: "用于具体的日期。" },
+        { q: "We have English class _______ Mondays.", qCn: "我们每周一有英语课。", a: "on", aCn: "在（星期几）", opts: [{t:"at", c:"在..."}, {t:"in", c:"在..."}], tip: "📅 [面逻辑]：物体表面有接触时用 On。", m: "Use 'on' for days of the week.", mCn: "用于星期几。" },
+        { q: "The cat is sleeping _______ the sofa.", qCn: "猫在沙发上睡觉。", a: "on", aCn: "在...上面（表面）", opts: [{t:"in", c:"在...里面"}, {t:"at", c:"在...处"}], tip: "🚌 [空间逻辑]：大型交通工具（可以在上面走动的）用 On；私家车用 In。", m: "Use 'on' for surfaces.", mCn: "用于物体的表面。" },
         { q: "I will see you _______ New Year's Day.", qCn: "我会在元旦那天见你。", a: "on", aCn: "在（特定的一天）", opts: [{t:"at", c:"在...期间"}, {t:"in", c:"在...年"}], m: "Use 'on' for one specific day.", mCn: "用于特定的一天。" },
         { q: "I left my keys _______ the kitchen table.", qCn: "我把钥匙留在厨房桌子上了。", a: "on", aCn: "在...上（表面）", opts: [{t:"in", c:"在...里"}, {t:"at", c:"在...旁"}], m: "Surface contact.", mCn: "接触表面。" },
         { q: "There is a fly _______ the ceiling.", qCn: "天花板上有一只苍蝇。", a: "on", aCn: "在...上", opts: [{t:"in", c:"在...里"}, {t:"at", c:"在...处"}], m: "Surfaces include walls and ceilings.", mCn: "表面也包括墙壁和天花板。" },
@@ -139,8 +144,8 @@
         { q: "The shop is _______ your left.", qCn: "商店在你的左手边。", a: "on", aCn: "在（方位）", opts: [{t:"in", c:"在...内"}, {t:"at", c:"在...处"}], m: "Use 'on' for left/right directions.", mCn: "用于左右方向。" },
 
         // IN (Periods/Enclosed Spaces)
-        { q: "The keys are _______ the drawer.", qCn: "钥匙在抽屉里。", a: "in", aCn: "在...里面", opts: [{t:"on", c:"在...上面"}, {t:"at", c:"在...处"}], m: "Use 'in' for enclosed spaces.", mCn: "用于封闭的空间。" },
-        { q: "It's beautiful here _______ the spring.", qCn: "这里的春天很美。", a: "in", aCn: "在（季节）", opts: [{t:"on", c:"在...那天"}, {t:"at", c:"在...点"}], m: "Use 'in' for seasons, months, and years.", mCn: "用于季节、月份和年份。" },
+        { q: "The keys are _______ the drawer.", qCn: "钥匙在抽屉里。", a: "in", aCn: "在...里面", opts: [{t:"on", c:"在...上面"}, {t:"at", c:"在...处"}], tip: "📦 [容器逻辑]：In 强调‘在三维空间内部’。", m: "Use 'in' for enclosed spaces.", mCn: "用于封闭的空间。" },
+        { q: "It's beautiful here _______ the spring.", qCn: "这里的春天很美。", a: "in", aCn: "在（季节）", opts: [{t:"on", c:"在...那天"}, {t:"at", c:"在...点"}], tip: "📦 [长周期逻辑]：In 用于月份、季节、年份等较大的‘时间容器’。", m: "Use 'in' for seasons, months, and years.", mCn: "用于季节、月份和年份。" },
         { q: "He was born _______ 1995.", qCn: "他出生于 1995 年。", a: "in", aCn: "在（年份）", opts: [{t:"on", c:"在...天"}, {t:"at", c:"在...点"}], m: "Use 'in' for years.", mCn: "用于年份。" },
         { q: "There are millions of stars _______ the sky.", qCn: "天空中有数百万颗星星。", a: "in", aCn: "在...（空间）", opts: [{t:"on", c:"在...上"}, {t:"at", c:"在...点"}], m: "Use 'in' for three-dimensional spaces.", mCn: "用于三维空间。" },
         { q: "I read about it _______ a newspaper.", qCn: "我在报纸上读到了这件事。", a: "in", aCn: "在（纸质媒体）中", opts: [{t:"on", c:"在...上"}, {t:"at", c:"在...处"}], m: "Use 'in' for print media.", mCn: "用于纸质媒体。" },
@@ -154,8 +159,8 @@
     // COMPOUND ADJECTIVES - 64 Questions (2 variations for each of the 32 terms)
     compound_adj: [
         // Number + Singular Noun
-        { q: "I only have a _______ break for lunch.", qCn: "我只有五分钟的午休时间。", a: "five-minute", aCn: "五分钟的", opts: [{t:"five-minutes", c:"(错误形式)"}, {t:"fifth-minute", c:"第五分钟"}], m: "Use singular noun in compound adjectives.", mCn: "复合形容词中的名词须用单数。" },
-        { q: "It was a _______ wait at the hospital.", qCn: "在医院里等了三个小时。", a: "three-hour", aCn: "三小时的", opts: [{t:"three-hours", c:"(错误形式)"}, {t:"third-hour", c:"第三小时"}], m: "Hyphenated number + singular noun.", mCn: "数词+单数名词，中间加连字符。" },
+        { q: "I only have a _______ break for lunch.", qCn: "我只有五分钟的午休时间。", a: "five-minute", aCn: "五分钟的", opts: [{t:"five-minutes", c:"(错误形式)"}, {t:"fifth-minute", c:"第五分钟"}], tip: "⚠️ [单数原则]：复合形容词里的名词必须是单数！(不要加 S)。", m: "Use singular noun in compound adjectives.", mCn: "复合形容词中的名词须用单数。" },
+        { q: "It was a _______ wait at the hospital.", qCn: "在医院里等了三个小时。", a: "three-hour", aCn: "三小时的", opts: [{t:"three-hours", c:"(错误形式)"}, {t:"third-hour", c:"第三小时"}], tip: "🔗 [连字符]：数字与名词间必须有连字符 (-) 才能变成形容词。", m: "Hyphenated number + singular noun.", mCn: "数词+单数名词，中间加连字符。" },
 
         // Adjective + Noun
         { q: "The pilot made a _______ decision to land the plane safely.", qCn: "飞行员做出了最后一刻的决定，安全降落了飞机。", a: "last-minute", aCn: "最后一刻的", opts: [{t:"first-minute", c:"第一分钟的"}, {t:"long-term", c:"长期的"}], m: "Decision made at the very end.", mCn: "在最后关头做出的。" },
@@ -172,22 +177,22 @@
         { q: "She felt uncomfortable in her _______ jeans.", qCn: "她穿着那条紧身牛仔裤感到很不舒服。", a: "tight-fitting", aCn: "紧身的", opts: [{t:"easy-going", c:"随和的"}, {t:"record-breaking", c:"破纪录的"}], m: "Clothes that are very close to the body.", mCn: "贴身的衣物。" },
 
         // Noun + Present Participle
-        { q: "The smell of the chocolate cake was _______.", qCn: "巧克力蛋糕的味道令人垂涎欲滴。", a: "mouth-watering", aCn: "令人垂涎的", opts: [{t:"time-saving", c:"省时的"}, {t:"english-speaking", c:"说英语的"}], m: "Smelling or looking delicious.", mCn: "闻起来或看起来很好吃。" },
-        { q: "Online shopping is a _______ way to buy clothes.", qCn: "网上购物是一种省时的买衣服方式。", a: "time-saving", aCn: "省时的", opts: [{t:"mouth-watering", c:"令人垂涎的"}, {t:"record-breaking", c:"破纪录的"}], m: "Making a task faster.", mCn: "让任务变得更快。" },
-        { q: "He works for an _______ company in London.", qCn: "他在伦敦的一家说英语的公司工作。", a: "english-speaking", aCn: "说英语的", opts: [{t:"mouth-watering", c:"垂涎欲滴的"}, {t:"time-saving", c:"省时的"}], m: "Using English as the main language.", mCn: "以英语为主要语言的。" },
+        { q: "The smell of the chocolate cake was _______.", qCn: "巧克力蛋糕的味道令人垂涎欲滴。", a: "mouth-watering", aCn: "令人垂涎的", opts: [{t:"time-saving", c:"省时的"}, {t:"english-speaking", c:"说英语的"}], tip: "💡 [-ing 逻辑]：主动属性。这个工具‘主动’节省了时间，所以用 -ing。", m: "Smelling or looking delicious.", mCn: "闻起来或看起来很好吃。" },
+        { q: "Online shopping is a _______ way to buy clothes.", qCn: "网上购物是一种省时的买衣服方式。", a: "time-saving", aCn: "省时的", opts: [{t:"mouth-watering", c:"令人垂涎的"}, {t:"record-breaking", c:"破纪录的"}], tip: "💡 [-ing 逻辑]：主动属性。这个工具‘主动’节省了时间，所以用 -ing。", m: "Making a task faster.", mCn: "让任务变得更快。" },
+        { q: "He works for an _______ company in London.", qCn: "他在伦敦的一家说英语的公司工作。", a: "english-speaking", aCn: "说英语的", opts: [{t:"mouth-watering", c:"垂涎欲滴的"}, {t:"time-saving", c:"省时的"}], tip: "💡 [-ing 逻辑]：主动属性。这个工具‘主动’节省了时间，所以用 -ing。", m: "Using English as the main language.", mCn: "以英语为主要语言的。" },
 
         // Noun + Adjective
         { q: "The Eiffel Tower is a _______ landmark in Paris.", qCn: "埃菲尔铁塔是巴黎闻名世界的地标。", a: "world-famous", aCn: "举世闻名的", opts: [{t:"smoke-free", c:"无烟的"}, {t:"sugar-free", c:"无糖的"}], m: "Known by people all over the planet.", mCn: "全世界人都知道的。" },
-        { q: "This is a _______ restaurant; you cannot use cigarettes here.", qCn: "这是一家无烟餐厅；你不能在这里抽烟。", a: "smoke-free", aCn: "无烟的", opts: [{t:"ice-cold", c:"冰冷的"}, {t:"family-friendly", c:"适合家庭的"}], m: "Area where smoking is forbidden.", mCn: "禁止吸烟的区域。" },
+        { q: "This is a _______ restaurant; you cannot use cigarettes here.", qCn: "这是一家无烟餐厅；你不能在这里抽烟。", a: "smoke-free", aCn: "无烟的", opts: [{t:"ice-cold", c:"冰冷的"}, {t:"family-friendly", c:"适合家庭的"}], tip: "💡 [无字诀]：Noun + free = ‘没有...’。", m: "Means 'without'.", m: "Area where smoking is forbidden.", mCn: "禁止吸烟的区域。" },
         { q: "I love drinking _______ soda on a hot summer day.", qCn: "我喜欢在炎热的夏天喝冰镇汽水。", a: "ice-cold", aCn: "冰冷的", opts: [{t:"sugar-free", c:"无糖的"}, {t:"world-famous", c:"举世闻名的"}], m: "Very cold, like ice.", mCn: "像冰一样冷。" },
         { q: "This cake is _______, so it is safe for diabetics.", qCn: "这个蛋糕是无糖的，所以对糖尿病人是安全的。", a: "sugar-free", aCn: "无糖的", opts: [{t:"family-friendly", c:"适合家庭的"}, {t:"ice-cold", c:"冰冷的"}], m: "Contains no sugar.", mCn: "不含糖。" },
         { q: "The resort is _______ and has many activities for kids.", qCn: "这个度假村适合家庭入住，有很多适合孩子的活动。", a: "family-friendly", aCn: "适合家庭的", opts: [{t:"smoke-free", c:"无烟的"}, {t:"world-famous", c:"举世闻名的"}], m: "Suitable for people of all ages.", mCn: "适合全家老小的。" },
 
         // Noun + Past Participle (-ed)
-        { q: "The remote island uses _______ energy for electricity.", qCn: "那个偏远小岛使用风能发电。", a: "wind-powered", aCn: "风力驱动的", opts: [{t:"water-cooled", c:"水冷的"}, {t:"sun-dried", c:"日晒的"}], m: "Getting energy from the wind.", mCn: "由风力驱动的。" },
-        { q: "I bought some _______ tomatoes from the organic market.", qCn: "我从有机市场买了一些日晒番茄干。", a: "sun-dried", aCn: "晒干的", opts: [{t:"middle-aged", c:"中年的"}, {t:"wind-powered", c:"风力的"}], m: "Dried by exposure to the sun.", mCn: "在阳光下晒干的。" },
-        { q: "The movie is about a _______ man who rediscovers his youth.", qCn: "这部电影讲的是一个重寻青春的中年男人的故事。", a: "middle-aged", aCn: "中年的", opts: [{t:"water-cooled", c:"水冷的"}, {t:"sun-dried", c:"日晒的"}], m: "Being between 45 and 65 years old.", mCn: "处于 45 到 65 岁之间的。" },
-        { q: "High-end computers often use _______ systems to prevent overheating.", qCn: "高端电脑通常使用水冷系统来防止过热。", a: "water-cooled", aCn: "水冷的", opts: [{t:"wind-powered", c:"风力的"}, {t:"middle-aged", c:"中年的"}], m: "Kept cool by a flow of water.", mCn: "通过水流降温的。" },
+        { q: "The remote island uses _______ energy for electricity.", qCn: "那个偏远小岛使用风能发电。", a: "wind-powered", aCn: "风力驱动的", opts: [{t:"water-cooled", c:"水冷的"}, {t:"sun-dried", c:"日晒的"}], tip: "💡 [-ed 逻辑]：被动属性。能量是‘被’风驱动出来的，所以用 -ed。", m: "Getting energy from the wind.", mCn: "由风力驱动的。" },
+        { q: "I bought some _______ tomatoes from the organic market.", qCn: "我从有机市场买了一些日晒番茄干。", a: "sun-dried", aCn: "晒干的", opts: [{t:"middle-aged", c:"中年的"}, {t:"wind-powered", c:"风力的"}], tip: "💡 [-ed 逻辑]：被动属性。能量是‘被’风驱动出来的，所以用 -ed。", m: "Dried by exposure to the sun.", mCn: "在阳光下晒干的。" },
+        { q: "The movie is about a _______ man who rediscovers his youth.", qCn: "这部电影讲的是一个重寻青春的中年男人的故事。", a: "middle-aged", aCn: "中年的", opts: [{t:"water-cooled", c:"水冷的"}, {t:"sun-dried", c:"日晒的"}], tip: "💡 [-ed 逻辑]：被动属性。能量是‘被’风驱动出来的，所以用 -ed。", m: "Being between 45 and 65 years old.", mCn: "处于 45 到 65 岁之间的。" },
+        { q: "High-end computers often use _______ systems to prevent overheating.", qCn: "高端电脑通常使用水冷系统来防止过热。", a: "water-cooled", aCn: "水冷的", opts: [{t:"wind-powered", c:"风力的"}, {t:"middle-aged", c:"中年的"}], tip: "💡 [-ed 逻辑]：被动属性。能量是‘被’风驱动出来的，所以用 -ed。", m: "Kept cool by a flow of water.", mCn: "通过水流降温的。" },
 
         // Adverb + Past Participle
         { q: "The street was _______ for the midnight festival.", qCn: "为了午夜祭典，街道被灯火通明地装饰着。", a: "brightly-lit", aCn: "灯火通明的", opts: [{t:"densely-populated", c:"人口稠密的"}, {t:"well-known", c:"众所周知的"}], m: "Having a lot of light.", mCn: "光线充足的。" },
@@ -248,6 +253,29 @@
         { q: "The rebels managed to _______ during the evening battle.", qCn: "叛军在晚间的战斗中成功地...。", a: "get the upper hand", aCn: "占上风/取得优势", opts: [{t:"get away from it all", c:"逃避一切"}, {t:"get rid of something", c:"摆脱"}], m: "To gain a position of advantage.", mCn: "获得优势地位。" },
         { q: "In negotiations, it is important to _______ early on.", qCn: "在谈判中，尽早...是很重要的。", a: "get the upper hand", aCn: "占领先机/优势", opts: [{t:"get the hang of something", c:"掌握诀窍"}, {t:"get ahead", c:"出头"}], m: "To gain control over a situation.", mCn: "获得对局势的控制。" },
         { q: "Technology has helped big companies _______ over smaller ones.", qCn: "技术帮助大公司在竞争中对小公司...。", a: "get the upper hand", aCn: "占据优势/压制", opts: [{t:"get into something", c:"进入"}, {t:"get on with your life", c:"继续生活"}], m: "To become more powerful than an opponent.", mCn: "变得比对手更强大。" }
+    ],
+
+    language_functions: [
+        { q: "‘Please put your bags in the overhead locker.’ What is the speaker doing?", a: "to instruct", aCn: "指示/教导", opts: [{t:"to warn", c:"警告"}, {t:"to express interest", c:"表达兴趣"}], m: "Giving clear directions on what to do.", mCn: "给出明确的操作指令。" },
+        { q: "‘First, crack the eggs into a bowl, then whisk them.’ The speaker's purpose is _______.", a: "to instruct", aCn: "指示/教导", opts: [{t:"to express dismay", c:"表达沮丧"}, {t:"to accept", c:"接受"}], m: "Explaining steps in a process.", mCn: "解释过程中的步骤。" },
+        { q: "‘Oh no! I can't believe I lost my wallet again!’ The speaker is _______.", a: "to express dismay", aCn: "表达沮丧/忧虑", opts: [{t:"to express delight", c:"表达高兴"}, {t:"to direct", c:"引导"}], m: "Showing shock or unhappiness about something bad.", mCn: "对不好的事情感到震惊或不快。" },
+        { q: "‘What a mess! The whole project is ruined.’ This shows the speaker wants _______.", a: "to express dismay", aCn: "表达沮丧/失落", opts: [{t:"to agree", c:"同意"}, {t:"to warn", c:"警告"}], m: "Expressing disappointment or distress.", mCn: "表达失望或痛苦。" },
+        { q: "‘Tell me more about your trip! It sounds fascinating.’ The speaker is trying _______.", a: "to express interest", aCn: "表达兴趣", opts: [{t:"to express regret", c:"表达遗憾"}, {t:"to instruct", c:"指示"}], m: "Showing curiosity or wanting to know more.", mCn: "表现出好奇或想了解更多。" },
+        { q: "‘Really? How does that machine work?’ This is used _______.", a: "to express interest", aCn: "表达兴趣", opts: [{t:"to express anxiety", c:"表达焦虑"}, {t:"to accept", c:"接受"}], m: "Asking questions to show engagement.", mCn: "通过提问表现出参与感。" },
+        { q: "‘What if I fail the driving test tomorrow? I'm so nervous.’ The speaker is _______.", a: "to express anxiety", aCn: "表达焦虑", opts: [{t:"to express delight", c:"表达高兴"}, {t:"to instruct", c:"指示"}], m: "Showing worry or fear about the future.", mCn: "对未来感到担忧或恐惧。" },
+        { q: "‘I can't stop shaking; I'm so worried about the results.’ This is _______.", a: "to express anxiety", aCn: "表达焦虑", opts: [{t:"to warn", c:"警告"}, {t:"to agree", c:"同意"}], m: "Expressing unease or nervousness.", mCn: "表达不安或紧张。" },
+        { q: "‘Watch out! The floor is very slippery.’ The speaker's goal is _______.", a: "to warn", aCn: "警告", opts: [{t:"to express interest", c:"表达兴趣"}, {t:"to direct", c:"指示"}], m: "Alerting someone to a danger.", mCn: "提醒某人注意危险。" },
+        { q: "‘Don't touch that wire; you might get an electric shock.’ The speaker is _______.", a: "to warn", aCn: "警告", opts: [{t:"to accept", c:"接受"}, {t:"to express regret", c:"表达遗憾"}], m: "Telling someone to be careful of a risk.", mCn: "告诉某人要小心风险。" },
+        { q: "‘You're absolutely right. I feel exactly the same way.’ The speaker is _______.", a: "to agree", aCn: "同意", opts: [{t:"to express dismay", c:"表达沮丧"}, {t:"to instruct", c:"指示"}], m: "Having the same opinion as someone else.", mCn: "与他人意见一致。" },
+        { q: "‘I couldn't agree with you more on this point.’ This is used _______.", a: "to agree", aCn: "同意", opts: [{t:"to warn", c:"警告"}, {t:"to express interest", c:"表达兴趣"}], m: "Strongly supporting an idea.", mCn: "强烈支持某个观点。" },
+        { q: "‘I'm so sorry I missed your birthday party. I feel terrible.’ The speaker is _______.", a: "to express regret", aCn: "表达遗憾/抱歉", opts: [{t:"to express delight", c:"表达高兴"}, {t:"to accept", c:"接受"}], m: "Feeling sad or sorry about something in the past.", mCn: "对过去发生的事感到难过或抱歉。" },
+        { q: "‘I wish I hadn't shouted at my brother.’ This is _______.", a: "to express regret", aCn: "表达后悔", opts: [{t:"to direct", c:"指示"}, {t:"to express interest", c:"表达兴趣"}], m: "Wishing a past action could be changed.", mCn: "希望过去的某个行为可以改变。" },
+        { q: "‘Yes, I would be happy to help you with your homework.’ The speaker is _______.", a: "to accept", aCn: "接受", opts: [{t:"to express anxiety", c:"表达焦虑"}, {t:"to instruct", c:"指示"}], m: "Agreeing to a request or offer.", mCn: "同意请求或提议。" },
+        { q: "‘That sounds like a great plan. Let's do it!’ The speaker is _______.", a: "to accept", aCn: "接受/采纳", opts: [{t:"to warn", c:"警告"}, {t:"to express dismay", c:"表达沮丧"}], m: "Agreeing to an invitation or suggestion.", mCn: "同意邀请或建议。" },
+        { q: "‘I'm so thrilled! I finally got the promotion!’ The speaker is _______.", a: "to express delight", aCn: "表达高兴/欣喜", opts: [{t:"to express interest", c:"表达兴趣"}, {t:"to express regret", c:"表达后悔"}], m: "Showing great pleasure or happiness.", mCn: "表现出极大的愉悦或快乐。" },
+        { q: "‘Fantastic news! I'm so happy for you!’ This is _______.", a: "to express delight", aCn: "表达喜悦", opts: [{t:"to instruct", c:"指示"}, {t:"to express anxiety", c:"表达焦虑"}], m: "Expressing joy for someone.", mCn: "为某人表达喜悦。" },
+        { q: "‘Go down this street and take the second left.’ The speaker is _______.", a: "to direct", aCn: "指引/引导", opts: [{t:"to express interest", c:"表达兴趣"}, {t:"to warn", c:"警告"}], m: "Showing someone where to go.", mCn: "向某人指路。" },
+        { q: "‘Look at the diagram on page 42.’ The speaker's purpose is _______.", a: "to direct", aCn: "指引/指引注意力", opts: [{t:"to agree", c:"同意"}, {t:"to express dismay", c:"表达沮丧"}], m: "Aiming someone's attention toward something.", mCn: "将某人的注意力引向某物。" }
     ],
 
     // PHRASAL VERBS - OBJECTIVE (Actions & Events)
@@ -428,6 +456,17 @@ function loadQuestion() {
     document.getElementById('q-text').innerHTML = q.q;
     document.getElementById('feedback-area').classList.remove('show');
     document.getElementById('next-btn').style.display = 'none';
+    document.getElementById('q-cn').innerText = q.qCn;
+    
+    // TIP LOGIC
+    const tipBox = document.getElementById('tip-container');
+    const tipContent = document.getElementById('tip-content');
+    if (q.tip) {
+        tipBox.style.display = 'block';
+        tipContent.innerText = q.tip;
+    } else {
+        tipBox.style.display = 'none';
+    }
     
     const optionsList = document.getElementById('options-list');
     optionsList.innerHTML = '';
@@ -498,6 +537,7 @@ function showScore() {
 </body>
 
 </html>
+
 
 
 
