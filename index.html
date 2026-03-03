@@ -442,6 +442,9 @@ function startQuiz(cat) {
     });
     }
 
+    //move the data from temporary buckt to global one
+    currentQuestions = selectedQuestions;
+    
     // 5. Final shuffle so the order of words is random too
     currentQuestions.sort(() => Math.random() - 0.5);
 
@@ -540,6 +543,7 @@ function showScore() {
 </body>
 
 </html>
+
 
 
 
