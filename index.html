@@ -419,25 +419,28 @@ function showMenu() { showView('menu-view'); }
 function startQuiz(cat) {
     currentCategory = cat;
     const data = masterData[cat];
-    
+    let selectedQuestions = [];
+
+    //branching logic
+    if (cat === 'prepositions' || cat === 'compound_adj'){
+        selectedQuestions = [...data].sort(() => Math.random() - 0.5).slice(0.15);
+    } else {
     // 1. Group questions by their correct answer 'a'
     const grouped = data.reduce((acc, q) => {
         if (!acc[q.a]) acc[q.a] = [];
         acc[q.a].push(q);
         return acc;
     }, {});
-
     // 2. Get the unique answer keys and shuffle them
     const uniqueKeys = Object.keys(grouped).sort(() => Math.random() - 0.5);
-    
     // 3. Pick 10 unique keys (or all if less than 10)
     const selectedKeys = uniqueKeys.slice(0, 10);
-    
     // 4. From each selected key, pick ONE random variation
     currentQuestions = selectedKeys.map(key => {
         const variations = grouped[key];
         return variations[Math.floor(Math.random() * variations.length)];
     });
+    }
 
     // 5. Final shuffle so the order of words is random too
     currentQuestions.sort(() => Math.random() - 0.5);
@@ -537,6 +540,7 @@ function showScore() {
 </body>
 
 </html>
+
 
 
 
