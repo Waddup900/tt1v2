@@ -100,43 +100,156 @@
     
     // PHRASAL VERBS - SUBJECTIVE CONTEXT (Life skills & Feelings)
     phrasal_subj: [
-        { q: "It was a difficult year, but I managed to _______ the exams.", qCn: "这是艰难的一年，但我还是设法...了考试。", a: "get through something", aCn: "度过/完成某事", opts: [{t:"get rid of something", c:"摆脱某事"}, {t:"get ahead", c:"领先"}], m: "To finish or survive a difficult task.", mCn: "完成或熬过一项艰巨的任务。" },
-        { q: "You look stressed. You should take a holiday to _______.", qCn: "你看起来压力很大。你应该去度假，...", a: "get away from it all", aCn: "远离烦恼/去度假", opts: [{t:"get into something", c:"对某事感兴趣"}, {t:"get the upper hand", c:"占上风"}], m: "To go somewhere quiet to escape stress.", mCn: "去安静的地方躲避压力。" },
-        { q: "Coding is hard at first, but you will soon _______ it.", qCn: "编程起初很难，但你很快就会...它。", a: "get the hang of something", aCn: "掌握窍门", opts: [{t:"get ahead", c:"出人头地"}, {t:"get on with your life", c:"继续生活"}], m: "To learn how to do something.", mCn: "学习并掌握做某事的方法。" },
-        { q: "In this competitive world, you must work hard to _______.", qCn: "在这个竞争激烈的世界里，你必须努力工作才能...", a: "get ahead", aCn: "出人头地/领先", opts: [{t:"get through something", c:"熬过去"}, {t:"get into something", c:"投入其中"}], m: "To become successful in your career.", mCn: "在事业上取得成功。" },
-        { q: "After the breakup, it took him months to _______.", qCn: "分手后，他花了好几个月才...", a: "get on with your life", aCn: "继续生活/重新开始", opts: [{t:"get the upper hand", c:"占上风"}, {t:"get rid of something", c:"丢掉某物"}], m: "To move forward after a bad experience.", mCn: "在一段不愉快的经历后重新出发。" },
-        { q: "I need to _______ these old magazines; they are taking up too much space.", qCn: "我需要...这些旧杂志；它们太占空间了。", a: "get rid of something", aCn: "摆脱/丢弃某物", opts: [{t:"get into something", c:"开始喜欢上"}, {t:"get through something", c:"度过"}], m: "To throw away or remove something unwanted.", mCn: "扔掉或清除不想要的东西。" },
-        { q: "To _______ your gym membership, you should go every day.", qCn: "为了...你的健身会员卡，你应该每天都去。", a: "get the most out of something", aCn: "充分利用某物", opts: [{t:"get the hang of something", c:"掌握诀窍"}, {t:"get away from it all", c:"远离烦恼"}], m: "To use something in the best possible way.", mCn: "以最好的方式利用某物。" },
-        { q: "I have started to _______ classical music lately.", qCn: "我最近开始...古典音乐了。", a: "get into something", aCn: "对某事产生兴趣", opts: [{t:"get ahead", c:"领先"}, {t:"get rid of something", c:"摆脱"}], m: "To become interested or involved in something.", mCn: "开始对某事感兴趣或参与其中。" },
-        { q: "After a long debate, our team finally managed to _______.", qCn: "经过长时间的辩论，我们的团队终于设法...。", a: "get the upper hand", aCn: "占上风/取得优势", opts: [{t:"get away from it all", c:"度假"}, {t:"get through something", c:"熬过去"}], m: "To gain control or an advantage over someone.", mCn: "获得控制权或优势。" }
+        // 1. Get through something
+        { q: "I have so much homework to _______ before tomorrow.", qCn: "明天之前我有这么多功课要...。", a: "get through something", aCn: "完成/做完", opts: [{t:"get rid of something", c:"丢弃"}, {t:"get ahead", c:"出头"}], m: "To finish a lot of work.", mCn: "完成大量工作。" },
+        { q: "Her support helped me _______ the most difficult time of my life.", qCn: "她的支持帮我...了我生命中最艰难的时刻。", a: "get through something", aCn: "熬过/度过", opts: [{t:"get into something", c:"投入其中"}, {t:"get the hang of something", c:"掌握"}], m: "To survive a difficult experience.", mCn: "熬过一段艰难的经历。" },
+        { q: "I can't _______ this book; it is too boring.", qCn: "我没法...这本书；它太无聊了。", a: "get through something", aCn: "读完/看完", opts: [{t:"get the upper hand", c:"占上风"}, {t:"get away from it all", c:"逃避"}], m: "To finish reading or watching something.", mCn: "读完或看完某物。" },
+
+        // 2. Get away from it all
+        { q: "We decided to go camping to _______ for a few days.", qCn: "我们决定去露营几天，以...。", a: "get away from it all", aCn: "远离烦恼/去度假", opts: [{t:"get on with your life", c:"继续生活"}, {t:"get ahead", c:"出人头地"}], m: "To escape stress by going on holiday.", mCn: "通过度假逃离压力。" },
+        { q: "Sometimes I just want to _______ and live on a quiet island.", qCn: "有时我只想...，住在一个安静的小岛上。", a: "get away from it all", aCn: "远离世俗/躲避压力", opts: [{t:"get into something", c:"投入其中"}, {t:"get rid of something", c:"丢掉"}], m: "To escape from a busy or stressful life.", mCn: "逃离忙碌或充满压力的生活。" },
+        { q: "A weekend at the spa is a great way to _______.", qCn: "在水疗中心过周末是...的好方法。", a: "get away from it all", aCn: "彻底放松/逃离尘嚣", opts: [{t:"get through something", c:"熬过去"}, {t:"get the upper hand", c:"占优势"}], m: "To take a break from everything.", mCn: "从一切事物中抽身休息。" },
+
+        // 3. Get the hang of something
+        { q: "Skating is difficult at first, but you'll soon _______.", qCn: "滑冰刚开始很难，但你很快就会...。", a: "get the hang of something", aCn: "掌握诀窍/学会", opts: [{t:"get ahead", c:"领先"}, {t:"get on with your life", c:"重新生活"}], m: "To learn how to do something.", mCn: "学会如何做某事。" },
+        { q: "I'm starting to _______ using this new video editing software.", qCn: "我开始...如何使用这款新的视频编辑软件了。", a: "get the hang of something", aCn: "上手/掌握窍门", opts: [{t:"get rid of something", c:"摆脱"}, {t:"get into something", c:"进入"}], m: "To become skilled at something.", mCn: "变得擅长某事。" },
+        { q: "Once you _______ the basic steps, the dance becomes easy.", qCn: "一旦你...了基本步法，跳舞就变得容易了。", a: "get the hang of something", aCn: "领会/掌握", opts: [{t:"get the most out of something", c:"利用"}, {t:"get through something", c:"度过"}], m: "To understand how to do a task.", mCn: "理解如何完成一项任务。" },
+
+        // 4. Get ahead
+        { q: "If you want to _______ in your career, you must be proactive.", qCn: "如果你想在事业上...，你必须积极主动。", a: "get ahead", aCn: "出头/领先", opts: [{t:"get rid of something", c:"摆脱"}, {t:"get away from it all", c:"度假"}], m: "To be successful in your career.", mCn: "在事业上取得成功。" },
+        { q: "Taking extra classes can help you _______ of the other students.", qCn: "多修课程可以帮你...于其他学生。", a: "get ahead", aCn: "领先/超过", opts: [{t:"get into something", c:"进入"}, {t:"get on with your life", c:"继续生活"}], m: "To make more progress than others.", mCn: "比别人取得更多进展。" },
+        { q: "It's hard to _______ in this company without knowing the right people.", qCn: "如果不认识对的人，在这家公司很难...。", a: "get ahead", aCn: "晋升/成功", opts: [{t:"get through something", c:"度过"}, {t:"get the upper hand", c:"占上风"}], m: "To succeed or advance.", mCn: "成功或晋升。" },
+
+        // 5. Get into something
+        { q: "How did you _______ photography in the first place?", qCn: "你最初是怎么...摄影的？", a: "get into something", aCn: "对某事产生兴趣", opts: [{t:"get rid of something", c:"摆脱"}, {t:"get ahead", c:"领先"}], m: "To become interested in a hobby.", mCn: "对某种爱好产生兴趣。" },
+        { q: "I've really started to _______ historical movies lately.", qCn: "我最近真的开始...历史电影了。", a: "get into something", aCn: "迷上/深入了解", opts: [{t:"get away from it all", c:"逃避"}, {t:"get the hang of something", c:"掌握诀窍"}], m: "To start enjoying something very much.", mCn: "开始非常享受某事。" },
+        { q: "You need a good score to _______ the top university.", qCn: "你需要好成绩才能...这所顶尖大学。", a: "get into something", aCn: "进入/被录取", opts: [{t:"get through something", c:"通过"}, {t:"get on with your life", c:"继续生活"}], m: "To be accepted into a place or group.", mCn: "被某个地方或团体录取。" },
+
+        // 6. Get the most out of something
+        { q: "You should read the manual to _______ your new phone.", qCn: "你应该阅读手册以...你的新手机。", a: "get the most out of something", aCn: "充分利用某物", opts: [{t:"get ahead", c:"领先"}, {t:"get into something", c:"进入"}], m: "To use something efficiently.", mCn: "高效地利用某物。" },
+        { q: "To _______ your holiday, you should plan your itinerary early.", qCn: "为了...你的假期，你应该尽早计划行程。", a: "get the most out of something", aCn: "让...发挥最大价值", opts: [{t:"get through something", c:"度过"}, {t:"get rid of something", c:"摆脱"}], m: "To enjoy something as much as possible.", mCn: "尽可能多地享受某物。" },
+        { q: "The course helps students _______ their study time.", qCn: "这门课帮助学生...他们的学习时间。", a: "get the most out of something", aCn: "充分利用", opts: [{t:"get the upper hand", c:"占上风"}, {t:"get the hang of something", c:"掌握诀窍"}], m: "To gain maximum benefit from something.", mCn: "从某物中获得最大利益。" },
+
+        // 7. Get rid of something
+        { q: "I need to _______ this old sofa before the new one arrives.", qCn: "在新沙发运到之前，我需要...这个旧沙发。", a: "get rid of something", aCn: "处理掉/丢弃", opts: [{t:"get ahead", c:"领先"}, {t:"get through something", c:"度过"}], m: "To throw away something unwanted.", mCn: "扔掉不想要的东西。" },
+        { q: "We must _______ the bad habits that are holding us back.", qCn: "我们必须...那些阻碍我们进步的坏习惯。", a: "get rid of something", aCn: "改掉/摆脱", opts: [{t:"get into something", c:"进入"}, {t:"get on with your life", c:"继续生活"}], m: "To remove something harmful or unwanted.", mCn: "清除有害或不想要的东西。" },
+        { q: "The company had to _______ 100 employees during the crisis.", qCn: "公司在危机期间不得不... 100 名员工。", a: "get rid of something", aCn: "解雇/裁减", opts: [{t:"get away from it all", c:"逃避"}, {t:"get the hang of something", c:"掌握诀窍"}], m: "To make someone leave a job.", mCn: "让人离开工作岗位。" },
+
+        // 8. Get on with your life
+        { q: "After the accident, it was hard for him to _______.", qCn: "事故发生后，他很难...。", a: "get on with your life", aCn: "继续生活/重振旗鼓", opts: [{t:"get the upper hand", c:"占优势"}, {t:"get rid of something", c:"摆脱"}], m: "To stop worrying about the past and move on.", mCn: "不再担心过去并继续前进。" },
+        { q: "Stop crying over the broken vase and just _______!", qCn: "别再为那个打破的花瓶哭泣了，...吧！", a: "get on with your life", aCn: "继续过日子", opts: [{t:"get ahead", c:"出人头地"}, {t:"get into something", c:"投入其中"}], m: "To focus on the future.", mCn: "专注于未来。" },
+        { q: "She finally decided to _______ after being unhappy for years.", qCn: "在不快乐多年后，她终于决定...。", a: "get on with your life", aCn: "重新开始生活", opts: [{t:"get through something", c:"度过"}, {t:"get the most out of something", c:"充分利用"}], m: "To continue living after a setback.", mCn: "在挫折后继续生活。" },
+
+        // 9. Get the upper hand
+        { q: "The rebels managed to _______ during the evening battle.", qCn: "叛军在晚间的战斗中成功地...。", a: "get the upper hand", aCn: "占上风/取得优势", opts: [{t:"get away from it all", c:"逃避一切"}, {t:"get rid of something", c:"摆脱"}], m: "To gain a position of advantage.", mCn: "获得优势地位。" },
+        { q: "In negotiations, it is important to _______ early on.", qCn: "在谈判中，尽早...是很重要的。", a: "get the upper hand", aCn: "占领先机/优势", opts: [{t:"get the hang of something", c:"掌握诀窍"}, {t:"get ahead", c:"出头"}], m: "To gain control over a situation.", mCn: "获得对局势的控制。" },
+        { q: "Technology has helped big companies _______ over smaller ones.", qCn: "技术帮助大公司在竞争中对小公司...。", a: "get the upper hand", aCn: "占据优势/压制", opts: [{t:"get into something", c:"进入"}, {t:"get on with your life", c:"继续生活"}], m: "To become more powerful than an opponent.", mCn: "变得比对手更强大。" }
     ],
 
     // PHRASAL VERBS - OBJECTIVE (Actions & Events)
     phrasal_obj: [
-        { q: "The old bridge started to _______ because of the heavy rain.", qCn: "由于暴雨，那座老桥开始...了。", a: "fall apart", aCn: "破碎/倒塌", opts: [{t:"tighten up", c:"加强"}, {t:"wrap up", c:"包装"}], m: "To break into pieces because of being old or weak.", mCn: "因为陈旧或脆弱而破碎。" },
-        { q: "The sun began to _______ behind the mountains.", qCn: "太阳开始在山后...。", a: "go down", aCn: "落下/下降", opts: [{t:"spill over", c:"溢出"}, {t:"stand back", c:"往后站"}], m: "To move to a lower position or set (sun).", mCn: "下移或落山。" },
-        { q: "The council decided to _______ the dangerous building.", qCn: "委员会决定...那座危险的建筑物。", a: "knock down", aCn: "拆除/撞倒", opts: [{t:"turn around", c:"转变"}, {t:"feed on", c:"以...为食"}], m: "To destroy a building or structure.", mCn: "摧毁或拆除建筑物。" },
-        { q: "Eagles usually _______ small animals like rabbits.", qCn: "老鹰通常...兔子之类的小动物。", a: "feed on", aCn: "以...为食", opts: [{t:"soak up", c:"吸收"}, {t:"fall apart", c:"破碎"}], m: "To eat something as a food source.", mCn: "以某物为食物来源。" },
-        { q: "Use a sponge to _______ the water you spilled on the table.", qCn: "用海绵...你在桌上洒的水。", a: "soak up", aCn: "吸收/吸干", opts: [{t:"tighten up", c:"收紧"}, {t:"go down", c:"落下"}], m: "To absorb liquid.", mCn: "吸收液体。" },
-        { q: "The crowd was so big that it started to _______ into the street.", qCn: "人群如此之大，以至于开始...到街道上。", a: "spill over", aCn: "溢出/扩散", opts: [{t:"stand back", c:"往后退"}, {t:"wrap up", c:"结束"}], m: "To flow over the edge of a container or space.", mCn: "溢出边缘或扩散到其他空间。" },
-        { q: "Please _______! The fireworks are about to explode.", qCn: "请...！烟花就要爆炸了。", a: "stand back", aCn: "往后站/保持距离", opts: [{t:"knock down", c:"撞倒"}, {t:"turn around", c:"转身"}], m: "To move away from something dangerous.", mCn: "退后以避开危险。" },
-        { q: "The school needs to _______ the rules about latecomers.", qCn: "学校需要...关于迟到者的规定。", a: "tighten up", aCn: "加强/收紧", opts: [{t:"fall apart", c:"崩溃"}, {t:"go down", c:"下降"}], m: "To make rules or control stricter.", mCn: "使规则或控制更加严格。" },
-        { q: "The new manager helped to _______ the failing company.", qCn: "新经理帮助那家倒闭的公司...了。", a: "turn around", aCn: "好转/扭转局面", opts: [{t:"feed on", c:"吃"}, {t:"soak up", c:"吸收"}], m: "To make something unsuccessful become successful.", mCn: "使失败的事物好转。" },
-        { q: "Let's _______ this meeting and go for lunch.", qCn: "让我们...这次会议去吃午餐吧。", a: "wrap up", aCn: "结束/圆满完成", opts: [{t:"knock down", c:"拆除"}, {t:"spill over", c:"溢出"}], m: "To finish or complete something.", mCn: "完成或结束某事。" }
+        // 1. Fall apart
+        { q: "The old book started to _______ as I turned the pages.", qCn: "当我翻页时，这本旧书开始...了。", a: "fall apart", aCn: "破碎/散架", opts: [{t:"tighten up", c:"加强"}, {t:"wrap up", c:"结束"}], m: "To break into pieces.", mCn: "碎成碎片。" },
+        { q: "Their marriage began to _______ after only six months.", qCn: "他们的婚姻在仅仅六个月后就开始...了。", a: "fall apart", aCn: "崩溃/解体", opts: [{t:"soak up", c:"吸收"}, {t:"stand back", c:"后退"}], m: "To fail or break up.", mCn: "失败或破裂。" },
+        { q: "Cheap furniture will _______ quickly if you move it too often.", qCn: "如果你搬动太频繁，便宜的家具很快就会...。", a: "fall apart", aCn: "散架/损坏", opts: [{t:"turn around", c:"转好"}, {t:"feed on", c:"以...为食"}], m: "To break because of being weak.", mCn: "因为脆弱而损坏。" },
+
+        // 2. Go down
+        { q: "We watched the sun _______ over the ocean horizon.", qCn: "我们看着太阳在海洋地平线上...。", a: "go down", aCn: "落下", opts: [{t:"spill over", c:"溢出"}, {t:"soak up", c:"吸收"}], m: "To move to a lower position.", mCn: "移到较低的位置。" },
+        { q: "The price of petrol is expected to _______ next week.", qCn: "预计下周汽油价格会...。", a: "go down", aCn: "下降", opts: [{t:"stand back", c:"退后"}, {t:"knock down", c:"拆除"}], m: "To decrease in amount or value.", mCn: "在数量或价值上减少。" },
+        { q: "The Titanic started to _______ after hitting the iceberg.", qCn: "泰坦尼克号在撞上冰山后开始...。", a: "go down", aCn: "下沉", opts: [{t:"wrap up", c:"包装"}, {t:"tighten up", c:"加强"}], m: "To sink.", mCn: "沉没。" },
+
+        // 3. Knock down
+        { q: "The builders will _______ the old hospital to build a park.", qCn: "建筑工人将...旧医院来建造公园。", a: "knock down", aCn: "拆除", opts: [{t:"fall apart", c:"散架"}, {t:"feed on", c:"以...为食"}], m: "To destroy a building.", mCn: "摧毁建筑物。" },
+        { q: "The strong wind managed to _______ several trees in the garden.", qCn: "强风竟然...了花园里的几棵树。", a: "knock down", aCn: "刮倒", opts: [{t:"soak up", c:"吸收"}, {t:"turn around", c:"转变"}], m: "To hit something so it falls.", mCn: "撞击某物使其倒下。" },
+        { q: "Be careful! That car almost managed to _______ the cyclist.", qCn: "小心！那辆车差点...了骑自行车的人。", a: "knock down", aCn: "撞倒", opts: [{t:"spill over", c:"溢出"}, {t:"go down", c:"落下"}], m: "To hit someone with a vehicle.", mCn: "用车撞倒某人。" },
+
+        // 4. Feed on
+        { q: "Many tropical birds _______ insects and wild berries.", qCn: "许多热带鸟类...昆虫和野莓。", a: "feed on", aCn: "以...为食", opts: [{t:"soak up", c:"吸收"}, {t:"wrap up", c:"结束"}], m: "To eat something as food.", mCn: "以某物为食。" },
+        { q: "Plants _______ the nutrients found in the soil.", qCn: "植物...土壤中的养分。", a: "feed on", aCn: "吸收/以...为营养", opts: [{t:"stand back", c:"后退"}, {t:"fall apart", c:"破碎"}], m: "To gain strength from something.", mCn: "从某物中获取力量。" },
+        { q: "Spiders _______ flies that get caught in their webs.", qCn: "蜘蛛...被困在网里的苍蝇。", a: "feed on", aCn: "以...为食", opts: [{t:"knock down", c:"拆除"}, {t:"tighten up", c:"收紧"}], m: "To live by eating something.", mCn: "靠吃某物生存。" },
+
+        // 5. Soak up
+        { q: "The dry soil will quickly _______ the rain water.", qCn: "干燥的土壤会很快...雨水。", a: "soak up", aCn: "吸收", opts: [{t:"spill over", c:"溢出"}, {t:"stand back", c:"后退"}], m: "To absorb liquid.", mCn: "吸收液体。" },
+        { q: "We sat on the beach to _______ the warm afternoon sun.", qCn: "我们坐在海滩上...午后温暖的阳光。", a: "soak up", aCn: "沐浴/吸收", opts: [{t:"knock down", c:"撞倒"}, {t:"fall apart", c:"散架"}], m: "To enjoy a positive feeling or sun.", mCn: "享受积极的感觉或阳光。" },
+        { q: "Use this paper towel to _______ the milk you spilled.", qCn: "用这张纸巾...你洒出来的牛奶。", a: "soak up", aCn: "吸干", opts: [{t:"go down", c:"落下"}, {t:"turn around", c:"转变"}], m: "To take in liquid.", mCn: "吸入液体。" },
+
+        // 6. Spill over
+        { q: "The water in the pot started to _______ onto the stove.", qCn: "锅里的水开始...到炉子上。", a: "spill over", aCn: "溢出", opts: [{t:"tighten up", c:"加强"}, {t:"wrap up", c:"包装"}], m: "To flow over the edge.", mCn: "流出边缘。" },
+        { q: "The violence in the city might _______ into neighboring towns.", qCn: "城市里的暴力事件可能会...到邻近城镇。", a: "spill over", aCn: "扩散/波及", opts: [{t:"soak up", c:"吸收"}, {t:"go down", c:"下降"}], m: "To affect other areas.", mCn: "影响其他区域。" },
+        { q: "His anger from work often starts to _______ into his family life.", qCn: "他工作中产生的愤怒经常开始...到家庭生活中。", a: "spill over", aCn: "蔓延/影响", opts: [{t:"knock down", c:"拆除"}, {t:"feed on", c:"以...为食"}], m: "To spread to another situation.", mCn: "蔓延到另一种情况。" },
+
+        // 7. Stand back
+        { q: "Please _______ from the edge of the platform; the train is coming.", qCn: "请...月台边缘；火车来了。", a: "stand back", aCn: "退后/保持距离", opts: [{t:"turn around", c:"好转"}, {t:"fall apart", c:"破碎"}], m: "To move away for safety.", mCn: "为了安全而移开。" },
+        { q: "The police told the crowd to _______ to let the ambulance through.", qCn: "警察叫人群...让救护车通过。", a: "stand back", aCn: "往后站", opts: [{t:"wrap up", c:"结束"}, {t:"soak up", c:"吸收"}], m: "To maintain distance.", mCn: "保持距离。" },
+        { q: "Sometimes you need to _______ and look at the situation differently.", qCn: "有时你需要...，换个角度看情况。", a: "stand back", aCn: "退后一步", opts: [{t:"knock down", c:"撞倒"}, {t:"spill over", c:"溢出"}], m: "To look at something from a distance.", mCn: "从远处观察某事。" },
+
+        // 8. Tighten up
+        { q: "The security team will _______ the rules at the airport.", qCn: "安保团队将...机场的规定。", a: "tighten up", aCn: "加强/收紧", opts: [{t:"fall apart", c:"崩溃"}, {t:"go down", c:"下降"}], m: "To make rules stricter.", mCn: "使规则更严格。" },
+        { q: "You need to _______ the screws on this chair so it doesn't shake.", qCn: "你需要...这张椅子上的螺丝，这样它才不会晃动。", a: "tighten up", aCn: "拧紧", opts: [{t:"soak up", c:"吸收"}, {t:"feed on", c:"以...为营养"}], m: "To make something less loose.", mCn: "使某物不再松动。" },
+        { q: "The government plans to _______ the laws against cybercrime.", qCn: "政府计划...针对网络犯罪的法律。", a: "tighten up", aCn: "强化/收紧", opts: [{t:"knock down", c:"拆除"}, {t:"turn around", c:"转变"}], m: "To increase control.", mCn: "增加控制。" },
+
+        // 9. Turn around
+        { q: "The new coach managed to _______ the team's performance.", qCn: "新教练成功地...了球队的表现。", a: "turn around", aCn: "扭转/好转", opts: [{t:"fall apart", c:"散架"}, {t:"go down", c:"下降"}], m: "To make something successful again.", mCn: "使某事再次成功。" },
+        { q: "Don't _______! I have a surprise for you behind your back.", qCn: "别...！我背后有一个惊喜给你。", a: "turn around", aCn: "转身", opts: [{t:"spill over", c:"溢出"}, {t:"wrap up", c:"结束"}], m: "To rotate your body.", mCn: "转动身体。" },
+        { q: "We need to _______ this project quickly before the deadline.", qCn: "我们需要在截止日期前快速...这个项目。", a: "turn around", aCn: "完成/交货", opts: [{t:"soak up", c:"吸收"}, {t:"knock down", c:"拆除"}], m: "To complete a task in a set time.", mCn: "在设定时间内完成任务。" },
+
+        // 10. Wrap up
+        { q: "It's cold outside, so remember to _______ in a warm coat.", qCn: "外面很冷，记得穿上暖和的外套...好自己。", a: "wrap up", aCn: "穿暖和/包裹", opts: [{t:"spill over", c:"溢出"}, {t:"fall apart", c:"散架"}], m: "To dress warmly.", mCn: "穿得暖和。" },
+        { q: "Let's _______ the discussion and move to the next topic.", qCn: "让我们...讨论，进入下一个话题。", a: "wrap up", aCn: "结束/总结", opts: [{t:"soak up", c:"吸收"}, {t:"tighten up", c:"收紧"}], m: "To finish something.", mCn: "结束某事。" },
+        { q: "Could you help me _______ these gifts for the party?", qCn: "你能帮我...这些派对礼物吗？", a: "wrap up", aCn: "包装", opts: [{t:"stand back", c:"后退"}, {t:"knock down", c:"拆除"}], m: "To cover something in paper.", mCn: "用纸覆盖某物。" }
     ],
 
     // VOCABULARY (Standard Prep)
     vocab: [
-        { q: "The morning market is always _______ with many shoppers.", qCn: "早市总是因为有很多购物者而非常...。", a: "hectic", aCn: "忙乱/繁忙", opts: [{t:"negative", c:"消极的"}, {t:"obese", c:"肥胖的"}], m: "Very busy and full of activity.", mCn: "非常繁忙且充满活动。" },
-        { q: "Living near a train station is very _______ for commuters.", qCn: "住在火车站附近对通勤者来说是非常...的。", a: "convenient", aCn: "方便的", opts: [{t:"hazardous", c:"危险的"}, {t:"hectic", c:"忙乱"}], m: "Suited to your comfort or purpose.", mCn: "适合需求，方便使用。" },
-        { q: "We celebrate different _______ throughout the year.", qCn: "我们一年到头庆祝不同的...。", a: "occasions", aCn: "场合/时刻", opts: [{t:"deals", c:"交易"}, {t:"hygiene", c:"卫生"}], m: "Special events or times.", mCn: "特别的活动或时刻。" },
-        { q: "Black Friday is famous for its amazing _______ on electronics.", qCn: "“黑色星期五”以电子产品的惊人...而闻名。", a: "deals", aCn: "优惠/交易", opts: [{t:"hygiene", c:"卫生"}, {t:"consult", c:"咨询"}], m: "Agreements or great prices on products.", mCn: "产品的好价格或协议。" },
-        { q: "Washing your hands is part of good personal _______.", qCn: "洗手是良好个人...的一部分。", a: "hygiene", aCn: "卫生", opts: [{t:"obese", c:"肥胖"}, {t:"negative", c:"负面"}], m: "Keeping yourself clean to stay healthy.", mCn: "保持身体清洁以维持健康。" },
-        { q: "Being _______ can lead to heart problems and diabetes.", qCn: "过度...会导致心脏问题和糖尿病。", a: "obese", aCn: "肥胖", opts: [{t:"pristine", c:"洁净"}, {t:"hectic", c:"忙乱"}], m: "Extremely overweight.", mCn: "极度超重。" },
-        { q: "Working with fire is considered a _______ job.", qCn: "与火打交道被认为是一项...的工作。", a: "hazardous", aCn: "危险的", opts: [{t:"convenient", c:"方便的"}, {t:"assist", c:"协助"}], m: "Dangerous or risky.", mCn: "充满危险或风险。" },
-        { q: "The teacher asked the prefect to _______ him with the books.", qCn: "老师要求班长...他搬书。", a: "assist", aCn: "协助/帮助", opts: [{t:"consult", c:"咨询"}, {t:"deals", c:"交易"}], m: "To help someone.", mCn: "帮助某人。" },
-        { q: "Having a _______ attitude will not help you solve problems.", qCn: "持有...的态度无助于你解决问题。", a: "negative", aCn: "消极的/负面的", opts: [{t:"triumphant", c:"自豪的"}, {t:"serene", c:"平静的"}], m: "Not hopeful or focusing on bad things.", mCn: "不乐观或只关注坏事。" },
-        { q: "You should _______ your lawyer before signing the contract.", qCn: "在签署合同之前，你应该...你的律师。", a: "consult", aCn: "咨询/商量", opts: [{t:"assist", c:"帮助"}, {t:"negative", c:"消极"}], m: "To seek advice from an expert.", mCn: "寻求专家的建议。" }
+        // 1. Hectic
+        { q: "The city center is always _______ during the morning rush hour.", qCn: "早高峰期间，市中心总是非常...。", a: "hectic", aCn: "忙乱/繁忙", opts: [{t:"negative", c:"消极的"}, {t:"obese", c:"肥胖的"}], m: "Very busy and full of activity.", mCn: "非常忙碌且充满活动。" },
+        { q: "After being on holiday for a week, my first day back at work was _______.", qCn: "休假一周后，回公司上班的第一天非常...。", a: "hectic", aCn: "忙碌/繁忙", opts: [{t:"convenient", c:"方便的"}, {t:"hazardous", c:"危险的"}], m: "Frantic and busy.", mCn: "忙得不可开交。" },
+        { q: "I have a _______ schedule today with six meetings in a row.", qCn: "我今天的日程安排非常...，连续有六个会议。", a: "hectic", aCn: "繁忙/紧凑", opts: [{t:"pristine", c:"洁净的"}, {t:"isolated", c:"偏远的"}], m: "Full of incessant or frantic activity.", mCn: "充满不停歇的活动。" },
+
+        // 2. Convenient
+        { q: "Is it _______ for you to meet at the library at 5 PM?", qCn: "下午 5 点在图书馆见面，对你来说...吗？", a: "convenient", aCn: "方便的", opts: [{t:"hazardous", c:"危险的"}, {t:"hectic", c:"忙乱"}], m: "Fitting in well with your needs.", mCn: "符合你的需求或时间安排。" },
+        { q: "The new app makes it _______ to pay bills with just one click.", qCn: "这款新应用让点击一下就能付账单变得非常...。", a: "convenient", aCn: "方便的", opts: [{t:"negative", c:"消极的"}, {t:"ancient", c:"古老的"}], m: "Suited to your comfort or purpose.", mCn: "适合你的舒适或目的。" },
+        { q: "Living near a 24-hour convenience store is extremely _______.", qCn: "住在 24 小时便利店附近极其...。", a: "convenient", aCn: "方便的", opts: [{t:"miserable", c:"痛苦的"}, {t:"obese", c:"肥胖的"}], m: "Easy to use or nearby.", mCn: "易于使用或就在附近。" },
+
+        // 3. Occasions
+        { q: "I only wear my expensive suit on special _______ like weddings.", qCn: "我只在婚礼等特殊...才穿我昂贵的西装。", a: "occasions", aCn: "场合/时刻", opts: [{t:"deals", c:"优惠"}, {t:"hygiene", c:"卫生"}], m: "Particular events or celebrations.", mCn: "特定的事件或庆典。" },
+        { q: "We have had several _______ to talk, but we were always interrupted.", qCn: "我们有过几次交谈的...，但总是被打断。", a: "occasions", aCn: "机会/时刻", opts: [{t:"assist", c:"协助"}, {t:"negative", c:"负面"}], m: "Specific times when something happens.", mCn: "某事发生的特定时间。" },
+        { q: "The school hall is used for many different _______, including exams.", qCn: "学校礼堂被用于许多不同的...，包括考试。", a: "occasions", aCn: "场合/活动", opts: [{t:"consult", c:"咨询"}, {t:"hazardous", c:"危险"}], m: "Events or situations.", mCn: "活动或情况。" },
+
+        // 4. Deals
+        { q: "The salesman offered us some great _______ on the old car models.", qCn: "推销员在旧款汽车上给了我们一些很好的...。", a: "deals", aCn: "优惠/交易", opts: [{t:"hygiene", c:"卫生"}, {t:"occasions", c:"场合"}], m: "Agreements to buy something at a good price.", mCn: "以好价格购买某物的协议。" },
+        { q: "You can find amazing _______ at the night market if you bargain.", qCn: "如果你讲价，在夜市能找到惊人的...。", a: "deals", aCn: "划算的交易", opts: [{t:"assist", c:"协助"}, {t:"hectic", c:"忙乱"}], m: "Bargains or business agreements.", mCn: "廉价货或业务协议。" },
+        { q: "The two companies are planning to sign several _______ next month.", qCn: "这两家公司计划下个月签署几项...。", a: "deals", aCn: "协议/交易", opts: [{t:"consult", c:"咨询"}, {t:"obese", c:"肥胖"}], m: "Business arrangements.", mCn: "业务安排。" },
+
+        // 5. Hygiene
+        { q: "Food _______ is very important when preparing meals for the public.", qCn: "为公众准备餐食时，食品...非常重要。", a: "hygiene", aCn: "卫生", opts: [{t:"occasions", c:"场合"}, {t:"deals", c:"优惠"}], m: "Keeping things clean to stay healthy.", mCn: "保持清洁以维持健康。" },
+        { q: "The restaurant was closed down because of its poor _______ standards.", qCn: "那家餐厅因为...标准太差而被关闭了。", a: "hygiene", aCn: "卫生", opts: [{t:"obese", c:"肥胖"}, {t:"assist", c:"协助"}], m: "Cleanliness and health practices.", mCn: "清洁与健康的实践。" },
+        { q: "Brushing your teeth twice a day is essential for dental _______.", qCn: "每天刷两次牙对牙齿...至关重要。", a: "hygiene", aCn: "卫生", opts: [{t:"hazardous", c:"危险"}, {t:"consult", c:"咨询"}], m: "Practices that maintain health.", mCn: "维持健康的习惯。" },
+
+        // 6. Obese
+        { q: "Doctors are worried that more children are becoming _______ due to sugar.", qCn: "医生们担心越来越多的孩子因为糖分而变得...。", a: "obese", aCn: "肥胖", opts: [{t:"hectic", c:"忙乱"}, {t:"convenient", c:"方便"}], m: "Extremely overweight.", mCn: "极度超重。" },
+        { q: "An _______ person has a higher risk of having heart problems.", qCn: "一个...的人患心脏问题的风险更高。", a: "obese", aCn: "肥胖", opts: [{t:"pristine", c:"洁净"}, {t:"serene", c:"平静"}], m: "Grossly fat.", mCn: "极度肥胖。" },
+        { q: "He was advised to change his diet before he became clinically _______.", qCn: "他被建议在达到临床...程度之前改变饮食。", a: "obese", aCn: "肥胖", opts: [{t:"negative", c:"消极"}, {t:"deals", c:"优惠"}], m: "Very fat in a way that is unhealthy.", mCn: "以一种不健康的方式变得很胖。" },
+
+        // 7. Hazardous
+        { q: "Warning: These chemicals are _______ and should be handled with care.", qCn: "警告：这些化学品是...的，应小心处理。", a: "hazardous", aCn: "危险的/有害的", opts: [{t:"convenient", c:"方便的"}, {t:"assist", c:"协助"}], m: "Risky or dangerous.", mCn: "有风险或危险的。" },
+        { q: "Driving in a heavy storm without headlights is extremely _______.", qCn: "在暴风雨中不开启大灯驾驶是极其...的。", a: "hazardous", aCn: "危险的", opts: [{t:"hectic", c:"忙乱"}, {t:"occasions", c:"场合"}], m: "Full of danger.", mCn: "充满危险。" },
+        { q: "The workers wore protective suits to remove the _______ waste.", qCn: "工人们穿着防护服来清除...废物。", a: "hazardous", aCn: "有害的/危险的", opts: [{t:"deals", c:"优惠"}, {t:"pristine", c:"洁净"}], m: "Involving risk or danger.", mCn: "涉及风险或危险。" },
+
+        // 8. Assist
+        { q: "We need a volunteer to _______ the teacher with the experiment.", qCn: "我们需要一名志愿者来...老师进行实验。", a: "assist", aCn: "协助/帮助", opts: [{t:"consult", c:"咨询"}, {t:"negative", c:"负面"}], m: "To help someone.", mCn: "帮助某人。" },
+        { q: "The new software is designed to _______ doctors in diagnosing patients.", qCn: "这款新软件旨在...医生诊断病人。", a: "assist", aCn: "辅助/协助", opts: [{t:"deals", c:"交易"}, {t:"hygiene", c:"卫生"}], m: "To give support or help.", mCn: "提供支持或帮助。" },
+        { q: "The AI robot can _______ elderly people with their daily tasks.", qCn: "人工智能机器人可以...老年人完成日常任务。", a: "assist", aCn: "协助/帮助", opts: [{t:"obese", c:"肥胖"}, {t:"hazardous", c:"危险"}], m: "To aid or help.", mCn: "援助或帮助。" },
+
+        // 9. Negative
+        { q: "The player received a _______ comment from his coach after the game.", qCn: "比赛结束后，那名球员收到了教练的...评价。", a: "negative", aCn: "消极的/负面的", opts: [{t:"triumphant", c:"自豪的"}, {t:"serene", c:"平静的"}], m: "Not hopeful or focusing on bad things.", mCn: "不乐观或关注坏事。" },
+        { q: "Smoking has a very _______ effect on your lungs and heart.", qCn: "吸烟对你的肺部和心脏有非常...的影响。", a: "negative", aCn: "负面的/不良的", opts: [{t:"delighted", c:"高兴的"}, {t:"convenient", c:"方便的"}], m: "Bad or harmful.", mCn: "坏的或有害的。" },
+        { q: "Stop being so _______! Try to look at the bright side of things.", qCn: "别再那么...了！试着看看事物好的一面。", a: "negative", aCn: "消极的/悲观的", opts: [{t:"ancient", c:"古老的"}, {t:"hectic", c:"忙碌的"}], m: "Expressing criticism or lack of hope.", mCn: "表达批评或缺乏希望。" },
+
+        // 10. Consult
+        { q: "You should _______ a map before you get lost in the forest.", qCn: "在你森林迷路之前，你应该...地图。", a: "consult", aCn: "查阅/参考", opts: [{t:"assist", c:"协助"}, {t:"hygiene", c:"卫生"}], m: "To refer to for information.", mCn: "参考以获取信息。" },
+        { q: "If the pain continues, you must _______ a specialist immediately.", qCn: "如果疼痛持续，你必须立即...专家。", a: "consult", aCn: "咨询/请教", opts: [{t:"deals", c:"优惠"}, {t:"occasions", c:"场合"}], m: "To seek advice from an expert.", mCn: "寻求专家的建议。" },
+        { q: "The manager will _______ with the team before making a decision.", qCn: "经理在做出决定前会与团队进行...。", a: "consult", aCn: "商量/商讨", opts: [{t:"hazardous", c:"危险"}, {t:"obese", c:"肥胖"}], m: "To discuss something with someone for advice.", mCn: "与某人讨论某事以获取建议。" }
     ],
 
     // SYNONYMS (The "Very" Killers)
@@ -259,4 +372,5 @@ function showScore() {
 </body>
 
 </html>
+
 
