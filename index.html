@@ -43,6 +43,8 @@
         <button class="btn btn-category" onclick="startQuiz('idioms')">Idioms (成语)</button>
         <button class="btn btn-category" onclick="startQuiz('synonyms')">Synonyms (同义词)</button>
         <button class="btn btn-category" onclick="startQuiz('vocab')">Vocabulary (词汇)</button>
+        <button class="btn btn-category" onclick="startQuiz('phrasal_subj')">Phrasal Verbs - Subjective</button>
+        <button class="btn btn-category" onclick="startQuiz('phrasal_obj')">Phrasal Verbs - Objective</button>
         <p style="text-align: center; color: #999; font-size: 0.8em;">More categories coming soon...</p>
     </div>
 
@@ -71,22 +73,9 @@
 </div>
 
 <script>
-// const masterData = {
-//     idioms: [
-//         { q: "He is always criticizing my art, but he can't draw at all! Truly, _______.", qCn: "他总是批评我的画，但他自己根本不会画！真是...", a: "people who live in glass houses shouldn't throw stones", aCn: "责人前先想想自己", opts: [{t:"out of sight, out of mind", c:"眼不见，心不烦"}, {t:"a rolling stone gathers no moss", c:"滚石不生苔"}], m: "Don't criticize others for flaws you also have.", mCn: "如果你也有同样的缺点，就不要批评别人。" },
-//         { q: "You should buy those flight tickets now while they are cheap. _______.", qCn: "你应该趁现在机票便宜时买下来...", a: "make hay while the sun shines", aCn: "打铁趁热 / 趁机行事", opts: [{t:"one swallow does not make a summer", c:"孤燕不成夏"}, {t:"a bird in hand is worth two in the bush", c:"一鸟在手胜过双鸟在林"}], m: "Take advantage of an opportunity while it lasts.", mCn: "趁机会还在的时候好好把握。" }
-//     ],
-//     synonyms: [
-//         { q: "The king lived in a ________ palace made of gold.", qCn: "国王住在一座金子做的...宫殿里。", a: "wealthy", aCn: "非常富有 (Very Rich)", opts: [{t:"miserable", c:"非常痛苦"}, {t:"foolish", c:"非常愚蠢"}], m: "Having a great deal of money or assets.", mCn: "拥有大量的金钱或资产。" },
-//         { q: "I was ________ when I saw the ghost in the hallway!", qCn: "当我看到走廊里的鬼魂时，我感到...", a: "horrified", aCn: "非常恐惧 (Very Scared)", opts: [{t:"thrilled", c:"非常兴奋"}, {t:"serene", c:"非常宁静"}], m: "To be filled with horror or shock.", mCn: "充满了恐惧或震惊。" }
-//     ],
-//     vocab: [
-//         { q: "The doctor told him he is ________ and needs to exercise more.", qCn: "医生告诉他他...了，需要多运动。", a: "obese", aCn: "过度肥胖", opts: [{t:"hectic", c:"繁忙的"}, {t:"pristine", c:"洁净的"}], m: "Grossly fat or overweight.", mCn: "极其肥胖或超重。" },
-//         { q: "It is very ________ to have a 24-hour shop near my house.", qCn: "我家附近有一家24小时营业的店是非常...的。", a: "convenient", aCn: "方便的", opts: [{t:"hazardous", c:"危险的"}, {t:"negative", c:"负面的"}], m: "Fitting in well with your needs/plans.", mCn: "非常符合你的需求或计划。" }
-//     ]
-// };
 
     const masterData = {
+        
     idioms: [
         // 1. Out of sight, out of mind
         { q: "Since they moved to Australia, we rarely talk. It's truly _______.", qCn: "自从他们搬到澳洲后，我们就很少联系了。真是...", a: "out of sight, out of mind", aCn: "眼不见，心不烦/离久情疏", opts: [{t:"a rolling stone gathers no moss", c:"滚石不生苔"}, {t:"make hay while the sun shines", c:"打铁趁热"}], m: "You forget people or things when they are not around.", mCn: "当某人或某事不在身边时，很容易被遗忘。" },
@@ -108,28 +97,65 @@
         // 6. A rolling stone gathers no moss
         { q: "He changes his job every three months and never saves any money. _______.", qCn: "他每三个月换一次工作，从来存不下钱。真是...", a: "a rolling stone gathers no moss", aCn: "滚石不生苔 (喻：居无定处难成事)", opts: [{t:"a bird in hand", c:"一鸟在手"}, {t:"one swallow does not make a summer", c:"孤燕不成夏"}], m: "A person who never settles will not succeed or grow wealthy.", mCn: "频繁变动的人很难积累财富或成功。" }
     ],
-
-    vocab: [
-        { q: "The emergency room was incredibly _______ after the big accident.", qCn: "大事故发生后，急诊室变得异常...", a: "hectic", aCn: "忙乱/繁忙", opts: [{t:"pristine", c:"洁净的"}, {t:"obese", c:"肥胖的"}], m: "Full of busy, frantic activity.", mCn: "非常忙碌且混乱。" },
-        { q: "It is very _______ to order food using a mobile app.", qCn: "用手机软件订餐是非常...的。", a: "convenient", aCn: "方便的", opts: [{t:"hazardous", c:"危险的"}, {t:"negative", c:"消极的"}], m: "Useful, easy, or helpful.", mCn: "适合需求，使用方便。" },
-        { q: "We only wear our traditional costumes on special _______ like weddings.", qCn: "我们只在婚礼等特殊...穿传统服装。", a: "occasions", aCn: "场合/时刻", opts: [{t:"deals", c:"交易"}, {t:"hygiene", c:"卫生"}], m: "Particular events or celebrations.", mCn: "特定的活动或庆典。" },
-        { q: "Eating too much junk food and not exercising can make a person _______.", qCn: "吃太多垃圾食品又不运动会让一个人变得...", a: "obese", aCn: "过度肥胖", opts: [{t:"hectic", c:"忙乱"}, {t:"assist", c:"协助"}], m: "Grossly fat or overweight.", mCn: "极度超重。" },
-        { q: "The chemicals in that factory are _______ to your health.", qCn: "那家工厂里的化学物质对你的健康是...的。", a: "hazardous", aCn: "危险的/有害的", opts: [{t:"convenient", c:"方便的"}, {t:"pristine", c:"洁净的"}], m: "Risky or dangerous.", mCn: "有危险或隐患。" },
-        { q: "Could you please _______ me with these heavy bags?", qCn: "你能...我提这些沉重的包吗？", a: "assist", aCn: "协助/帮助", opts: [{t:"consult", c:"咨询"}, {t:"deals", c:"交易"}], m: "To help someone.", mCn: "帮助他人。" },
-        { q: "Poor personal _______ can lead to various skin diseases.", qCn: "个人...习惯差会导致各种皮肤病。", a: "hygiene", aCn: "卫生", opts: [{t:"occasions", c:"场合"}, {t:"negative", c:"负面的"}], m: "Keeping oneself and surroundings clean.", mCn: "保持身体或环境清洁。" }
+    
+    // PHRASAL VERBS - SUBJECTIVE CONTEXT (Life skills & Feelings)
+    phrasal_subj: [
+        { q: "It was a difficult year, but I managed to _______ the exams.", qCn: "这是艰难的一年，但我还是设法...了考试。", a: "get through something", aCn: "度过/完成某事", opts: [{t:"get rid of something", c:"摆脱某事"}, {t:"get ahead", c:"领先"}], m: "To finish or survive a difficult task.", mCn: "完成或熬过一项艰巨的任务。" },
+        { q: "You look stressed. You should take a holiday to _______.", qCn: "你看起来压力很大。你应该去度假，...", a: "get away from it all", aCn: "远离烦恼/去度假", opts: [{t:"get into something", c:"对某事感兴趣"}, {t:"get the upper hand", c:"占上风"}], m: "To go somewhere quiet to escape stress.", mCn: "去安静的地方躲避压力。" },
+        { q: "Coding is hard at first, but you will soon _______ it.", qCn: "编程起初很难，但你很快就会...它。", a: "get the hang of something", aCn: "掌握窍门", opts: [{t:"get ahead", c:"出人头地"}, {t:"get on with your life", c:"继续生活"}], m: "To learn how to do something.", mCn: "学习并掌握做某事的方法。" },
+        { q: "In this competitive world, you must work hard to _______.", qCn: "在这个竞争激烈的世界里，你必须努力工作才能...", a: "get ahead", aCn: "出人头地/领先", opts: [{t:"get through something", c:"熬过去"}, {t:"get into something", c:"投入其中"}], m: "To become successful in your career.", mCn: "在事业上取得成功。" },
+        { q: "After the breakup, it took him months to _______.", qCn: "分手后，他花了好几个月才...", a: "get on with your life", aCn: "继续生活/重新开始", opts: [{t:"get the upper hand", c:"占上风"}, {t:"get rid of something", c:"丢掉某物"}], m: "To move forward after a bad experience.", mCn: "在一段不愉快的经历后重新出发。" },
+        { q: "I need to _______ these old magazines; they are taking up too much space.", qCn: "我需要...这些旧杂志；它们太占空间了。", a: "get rid of something", aCn: "摆脱/丢弃某物", opts: [{t:"get into something", c:"开始喜欢上"}, {t:"get through something", c:"度过"}], m: "To throw away or remove something unwanted.", mCn: "扔掉或清除不想要的东西。" },
+        { q: "To _______ your gym membership, you should go every day.", qCn: "为了...你的健身会员卡，你应该每天都去。", a: "get the most out of something", aCn: "充分利用某物", opts: [{t:"get the hang of something", c:"掌握诀窍"}, {t:"get away from it all", c:"远离烦恼"}], m: "To use something in the best possible way.", mCn: "以最好的方式利用某物。" },
+        { q: "I have started to _______ classical music lately.", qCn: "我最近开始...古典音乐了。", a: "get into something", aCn: "对某事产生兴趣", opts: [{t:"get ahead", c:"领先"}, {t:"get rid of something", c:"摆脱"}], m: "To become interested or involved in something.", mCn: "开始对某事感兴趣或参与其中。" },
+        { q: "After a long debate, our team finally managed to _______.", qCn: "经过长时间的辩论，我们的团队终于设法...。", a: "get the upper hand", aCn: "占上风/取得优势", opts: [{t:"get away from it all", c:"度假"}, {t:"get through something", c:"熬过去"}], m: "To gain control or an advantage over someone.", mCn: "获得控制权或优势。" }
     ],
 
+    // PHRASAL VERBS - OBJECTIVE (Actions & Events)
+    phrasal_obj: [
+        { q: "The old bridge started to _______ because of the heavy rain.", qCn: "由于暴雨，那座老桥开始...了。", a: "fall apart", aCn: "破碎/倒塌", opts: [{t:"tighten up", c:"加强"}, {t:"wrap up", c:"包装"}], m: "To break into pieces because of being old or weak.", mCn: "因为陈旧或脆弱而破碎。" },
+        { q: "The sun began to _______ behind the mountains.", qCn: "太阳开始在山后...。", a: "go down", aCn: "落下/下降", opts: [{t:"spill over", c:"溢出"}, {t:"stand back", c:"往后站"}], m: "To move to a lower position or set (sun).", mCn: "下移或落山。" },
+        { q: "The council decided to _______ the dangerous building.", qCn: "委员会决定...那座危险的建筑物。", a: "knock down", aCn: "拆除/撞倒", opts: [{t:"turn around", c:"转变"}, {t:"feed on", c:"以...为食"}], m: "To destroy a building or structure.", mCn: "摧毁或拆除建筑物。" },
+        { q: "Eagles usually _______ small animals like rabbits.", qCn: "老鹰通常...兔子之类的小动物。", a: "feed on", aCn: "以...为食", opts: [{t:"soak up", c:"吸收"}, {t:"fall apart", c:"破碎"}], m: "To eat something as a food source.", mCn: "以某物为食物来源。" },
+        { q: "Use a sponge to _______ the water you spilled on the table.", qCn: "用海绵...你在桌上洒的水。", a: "soak up", aCn: "吸收/吸干", opts: [{t:"tighten up", c:"收紧"}, {t:"go down", c:"落下"}], m: "To absorb liquid.", mCn: "吸收液体。" },
+        { q: "The crowd was so big that it started to _______ into the street.", qCn: "人群如此之大，以至于开始...到街道上。", a: "spill over", aCn: "溢出/扩散", opts: [{t:"stand back", c:"往后退"}, {t:"wrap up", c:"结束"}], m: "To flow over the edge of a container or space.", mCn: "溢出边缘或扩散到其他空间。" },
+        { q: "Please _______! The fireworks are about to explode.", qCn: "请...！烟花就要爆炸了。", a: "stand back", aCn: "往后站/保持距离", opts: [{t:"knock down", c:"撞倒"}, {t:"turn around", c:"转身"}], m: "To move away from something dangerous.", mCn: "退后以避开危险。" },
+        { q: "The school needs to _______ the rules about latecomers.", qCn: "学校需要...关于迟到者的规定。", a: "tighten up", aCn: "加强/收紧", opts: [{t:"fall apart", c:"崩溃"}, {t:"go down", c:"下降"}], m: "To make rules or control stricter.", mCn: "使规则或控制更加严格。" },
+        { q: "The new manager helped to _______ the failing company.", qCn: "新经理帮助那家倒闭的公司...了。", a: "turn around", aCn: "好转/扭转局面", opts: [{t:"feed on", c:"吃"}, {t:"soak up", c:"吸收"}], m: "To make something unsuccessful become successful.", mCn: "使失败的事物好转。" },
+        { q: "Let's _______ this meeting and go for lunch.", qCn: "让我们...这次会议去吃午餐吧。", a: "wrap up", aCn: "结束/圆满完成", opts: [{t:"knock down", c:"拆除"}, {t:"spill over", c:"溢出"}], m: "To finish or complete something.", mCn: "完成或结束某事。" }
+    ],
+
+    // VOCABULARY (Standard Prep)
+    vocab: [
+        { q: "The morning market is always _______ with many shoppers.", qCn: "早市总是因为有很多购物者而非常...。", a: "hectic", aCn: "忙乱/繁忙", opts: [{t:"negative", c:"消极的"}, {t:"obese", c:"肥胖的"}], m: "Very busy and full of activity.", mCn: "非常繁忙且充满活动。" },
+        { q: "Living near a train station is very _______ for commuters.", qCn: "住在火车站附近对通勤者来说是非常...的。", a: "convenient", aCn: "方便的", opts: [{t:"hazardous", c:"危险的"}, {t:"hectic", c:"忙乱"}], m: "Suited to your comfort or purpose.", mCn: "适合需求，方便使用。" },
+        { q: "We celebrate different _______ throughout the year.", qCn: "我们一年到头庆祝不同的...。", a: "occasions", aCn: "场合/时刻", opts: [{t:"deals", c:"交易"}, {t:"hygiene", c:"卫生"}], m: "Special events or times.", mCn: "特别的活动或时刻。" },
+        { q: "Black Friday is famous for its amazing _______ on electronics.", qCn: "“黑色星期五”以电子产品的惊人...而闻名。", a: "deals", aCn: "优惠/交易", opts: [{t:"hygiene", c:"卫生"}, {t:"consult", c:"咨询"}], m: "Agreements or great prices on products.", mCn: "产品的好价格或协议。" },
+        { q: "Washing your hands is part of good personal _______.", qCn: "洗手是良好个人...的一部分。", a: "hygiene", aCn: "卫生", opts: [{t:"obese", c:"肥胖"}, {t:"negative", c:"负面"}], m: "Keeping yourself clean to stay healthy.", mCn: "保持身体清洁以维持健康。" },
+        { q: "Being _______ can lead to heart problems and diabetes.", qCn: "过度...会导致心脏问题和糖尿病。", a: "obese", aCn: "肥胖", opts: [{t:"pristine", c:"洁净"}, {t:"hectic", c:"忙乱"}], m: "Extremely overweight.", mCn: "极度超重。" },
+        { q: "Working with fire is considered a _______ job.", qCn: "与火打交道被认为是一项...的工作。", a: "hazardous", aCn: "危险的", opts: [{t:"convenient", c:"方便的"}, {t:"assist", c:"协助"}], m: "Dangerous or risky.", mCn: "充满危险或风险。" },
+        { q: "The teacher asked the prefect to _______ him with the books.", qCn: "老师要求班长...他搬书。", a: "assist", aCn: "协助/帮助", opts: [{t:"consult", c:"咨询"}, {t:"deals", c:"交易"}], m: "To help someone.", mCn: "帮助某人。" },
+        { q: "Having a _______ attitude will not help you solve problems.", qCn: "持有...的态度无助于你解决问题。", a: "negative", aCn: "消极的/负面的", opts: [{t:"triumphant", c:"自豪的"}, {t:"serene", c:"平静的"}], m: "Not hopeful or focusing on bad things.", mCn: "不乐观或只关注坏事。" },
+        { q: "You should _______ your lawyer before signing the contract.", qCn: "在签署合同之前，你应该...你的律师。", a: "consult", aCn: "咨询/商量", opts: [{t:"assist", c:"帮助"}, {t:"negative", c:"消极"}], m: "To seek advice from an expert.", mCn: "寻求专家的建议。" }
+    ],
+
+    // SYNONYMS (The "Very" Killers)
     synonyms: [
-        { q: "The student was ________ when he received his perfect exam results.", qCn: "学生收到完美的考试成绩时感到...", a: "delighted", aCn: "非常高兴 (Very Happy)", opts: [{t:"miserable", c:"非常痛苦"}, {t:"irate", c:"非常愤怒"}], m: "Extremely pleased or happy.", mCn: "感到非常愉快或满意。" },
-        { q: "The old man looked ________ after losing his only pet.", qCn: "老人失去唯一的宠物后看起来...", a: "miserable", aCn: "非常难过 (Very Sad)", opts: [{t:"thrilled", c:"非常兴奋"}, {t:"serene", c:"非常宁静"}], m: "Extremely unhappy or wretched.", mCn: "非常不快乐或可怜。" },
-        { q: "My boss was ________ because I submitted the report late.", qCn: "我的老板因为我迟交报告而...", a: "irate", aCn: "非常愤怒 (Very Angry)", opts: [{t:"anxious", c:"非常焦虑"}, {t:"triumphant", c:"非常自豪"}], m: "Feeling or characterized by great anger.", mCn: "非常生气，发怒。" },
-        { q: "The tourists were ________ when they saw the shark near their boat.", qCn: "当游客看到船附近有鲨鱼时，他们感到...", a: "horrified", aCn: "非常恐惧 (Very Scared)", opts: [{t:"delighted", c:"非常高兴"}, {t:"astonished", c:"非常惊讶"}], m: "Filled with horror or shock.", mCn: "充满了恐惧或震惊。" },
-        { q: "She was ________ to finally meet her favorite singer in person.", qCn: "能亲眼见到她最喜欢的歌手，她感到...", a: "thrilled", aCn: "非常兴奋 (Very Excited)", opts: [{t:"miserable", c:"非常难过"}, {t:"foolish", c:"非常愚蠢"}], m: "Sudden excitement and pleasure.", mCn: "感到非常兴奋和愉快。" },
-        { q: "The forest was so ________ that you could only hear the birds.", qCn: "森林里非常...，你只能听到鸟鸣声。", a: "serene", aCn: "非常平静 (Very Calm)", opts: [{t:"irate", c:"非常愤怒"}, {t:"anxious", c:"非常焦虑"}], m: "Calm, peaceful, and untroubled.", mCn: "安详、宁静、无忧无虑。" },
-        { q: "He felt ________ as he waited for his surgery to begin.", qCn: "他在等待手术开始时感到...", a: "anxious", aCn: "非常焦虑 (Very Nervous)", opts: [{t:"triumphant", c:"非常自豪"}, {t:"devoted", c:"非常忠诚"}], m: "Feeling worried or uneasy.", mCn: "感到担忧、不安或焦虑。" },
-        { q: "The captain felt ________ as he lifted the championship trophy.", qCn: "当队长举起冠军奖杯时，他感到...", a: "triumphant", aCn: "非常自豪 (Very Proud)", opts: [{t:"horrified", c:"非常恐惧"}, {t:"isolated", c:"非常孤独"}], m: "Having won a battle or contest; victorious.", mCn: "获得胜利后的喜悦或自豪。" },
-        { q: "The loyal dog was ________ to its owner for its entire life.", qCn: "这只忠诚的狗一生都...于它的主人。", a: "devoted", aCn: "非常忠诚 (Very Loyal)", opts: [{t:"foolish", c:"非常愚蠢"}, {t:"ancient", c:"非常古老"}], m: "Very loving or loyal.", mCn: "全心全意的，忠实的。" },
-        { q: "The house was ________ in the middle of the desert, miles from anyone.", qCn: "那房子...在沙漠中心，距离任何人都有数英里。", a: "isolated", aCn: "非常孤独/偏远 (Very Lonely/Remote)", opts: [{t:"wealthy", c:"非常富有"}, {t:"pristine", c:"非常洁净"}], m: "Far away from other places or people.", mCn: "被隔离的，孤独的。" }
+        { q: "She was _______ when she saw her new kitten.", qCn: "当她看到她的新小猫时，她感到...", a: "delighted", aCn: "非常高兴 (Very Happy)", opts: [{t:"miserable", c:"非常痛苦"}, {t:"foolish", c:"非常愚蠢"}], m: "Very happy and pleased.", mCn: "非常愉快和满意。" },
+        { q: "The homeless man looked _______ in the cold rain.", qCn: "那个流浪汉在冷雨中看起来...", a: "miserable", aCn: "非常痛苦 (Very Sad)", opts: [{t:"thrilled", c:"非常兴奋"}, {t:"wealthy", c:"非常富有"}], m: "Extremely unhappy or uncomfortable.", mCn: "极度不快或不舒服。" },
+        { q: "My father was _______ when I lied to him.", qCn: "当我对他撒谎时，我的父亲感到...", a: "irate", aCn: "非常愤怒 (Very Angry)", opts: [{t:"anxious", c:"非常焦虑"}, {t:"serene", c:"非常宁静"}], m: "Extremely angry.", mCn: "非常生气。" },
+        { q: "I was _______ after watching that scary movie alone.", qCn: "独自看完那部恐怖电影后，我感到...", a: "horrified", aCn: "非常恐惧 (Very Scared)", opts: [{t:"astonished", c:"非常惊讶"}, {t:"triumphant", c:"非常自豪"}], m: "Very shocked and scared.", mCn: "感到非常震惊和恐惧。" },
+        { q: "The children were _______ about going to Disneyland.", qCn: "孩子们对去迪士尼乐园感到...", a: "thrilled", aCn: "非常兴奋 (Very Excited)", opts: [{t:"isolated", c:"非常孤独"}, {t:"ancient", c:"非常古老"}], m: "Extremely excited and happy.", mCn: "非常激动和愉快。" },
+        { q: "The yoga room was very _______ and quiet.", qCn: "瑜伽室非常...且安静。", a: "serene", aCn: "非常宁静 (Very Calm)", opts: [{t:"irate", c:"非常愤怒"}, {t:"horrified", c:"非常恐惧"}], m: "Calm and peaceful.", mCn: "宁静且和平。" },
+        { q: "He felt _______ before the results were announced.", qCn: "在成绩公布前，他感到...", a: "anxious", aCn: "非常焦虑 (Very Nervous)", opts: [{t:"devoted", c:"非常忠诚"}, {t:"pristine", c:"非常洁净"}], m: "Worried or nervous.", mCn: "担忧或紧张。" },
+        { q: "The athlete stood _______ on the podium.", qCn: "运动员...地站在领奖台上。", a: "triumphant", aCn: "非常自豪 (Very Proud)", opts: [{t:"foolish", c:"非常愚蠢"}, {t:"miserable", c:"非常痛苦"}], m: "Feeling joy after a victory.", mCn: "胜利后的喜悦。" },
+        { q: "The knight was _______ to his king until death.", qCn: "那位骑士直到去世都对他国王非常...。", a: "devoted", aCn: "非常忠诚 (Very Loyal)", opts: [{t:"isolated", c:"非常孤独"}, {t:"ancient", c:"非常古老"}], m: "Very loyal and loving.", mCn: "非常忠诚和热爱。" },
+        { q: "The castle was _______ on top of a mountain, away from people.", qCn: "那座城堡...在山顶上，远离人群。", a: "isolated", aCn: "非常孤独/偏远 (Very Lonely)", opts: [{t:"wealthy", c:"非常富有"}, {t:"pristine", c:"非常洁净"}], m: "Separated from others.", mCn: "与世隔绝的。" },
+        { q: "The pyramids are _______ monuments built thousands of years ago.", qCn: "金字塔是数千年前建造的...遗迹。", a: "ancient", aCn: "非常古老 (Very Old)", opts: [{t:"pristine", c:"非常洁净"}, {t:"foolish", c:"非常愚蠢"}], m: "Very old.", mCn: "非常古老。" },
+        { q: "Her white dress remained _______ even after the party.", qCn: "即使在聚会之后，她的白色连衣裙依然...", a: "pristine", aCn: "非常洁净/崭新 (Very New)", opts: [{t:"ancient", c:"非常古老"}, {t:"horrified", c:"非常恐惧"}], m: "In its original condition; clean and fresh.", mCn: "处于原始状态；洁净如新。" },
+        { q: "The _______ businessman donated millions to charity.", qCn: "那位...的企业家向慈善机构捐赠了数百万美元。", a: "wealthy", aCn: "非常富有 (Very Rich)", opts: [{t:"miserable", c:"非常痛苦"}, {t:"anxious", c:"非常焦虑"}], m: "Having a lot of money.", mCn: "非常有钱。" },
+        { q: "We were _______ by how fast the little boy could run.", qCn: "我们对那个小男孩能跑多快感到...", a: "astonished", aCn: "非常惊讶 (Very Surprised)", opts: [{t:"foolish", c:"非常愚蠢"}, {t:"serene", c:"非常宁静"}], m: "Very surprised; amazed.", mCn: "非常惊讶；惊叹。" },
+        { q: "It would be _______ to jump into the water without a life jacket.", qCn: "不穿救生衣跳进水里是...的行为。", a: "foolish", aCn: "非常愚蠢 (Very Stupid)", opts: [{t:"devoted", c:"非常忠诚"}, {t:"triumphant", c:"非常自豪"}], m: "Unwise or silly.", mCn: "不明智或愚蠢的。" }
     ]
 };
 
@@ -233,3 +259,4 @@ function showScore() {
 </body>
 
 </html>
+
