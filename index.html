@@ -79,26 +79,36 @@
     const masterData = {
         
     idioms: [
-        // 1. Out of sight, out of mind
-        { q: "Since they moved to Australia, we rarely talk. It's truly _______.", qCn: "自从他们搬到澳洲后，我们就很少联系了。真是...", a: "out of sight, out of mind", aCn: "眼不见，心不烦/离久情疏", opts: [{t:"a rolling stone gathers no moss", c:"滚石不生苔"}, {t:"make hay while the sun shines", c:"打铁趁热"}], m: "You forget people or things when they are not around.", mCn: "当某人或某事不在身边时，很容易被遗忘。" },
-        { q: "I forgot I even had those old toys in the attic. _______, I guess.", qCn: "我都忘了阁楼里还有那些旧玩具。大概是...", a: "out of sight, out of mind", aCn: "久不见则不念", opts: [{t:"one swallow does not make a summer", c:"孤燕不成夏"}, {t:"people who live in glass houses", c:"住玻璃房的人"}], m: "If you don't see it, you don't think about it.", mCn: "看不见，就不会想起。" },
-        
-        // 2. Make hay while the sun shines
-        { q: "The mall is having a 90% discount only for today! You should _______.", qCn: "商场今天只有90%的折扣！你应该...", a: "make hay while the sun shines", aCn: "打铁趁热 / 趁机行事", opts: [{t:"out of sight, out of mind", c:"离久情疏"}, {t:"a bird in hand", c:"一鸟在手"}], m: "Take advantage of a good situation while it lasts.", mCn: "趁着机会还在，赶紧行动。" },
-        { q: "You have plenty of free time before the exams start. _______ and study now!", qCn: "考试开始前你有充足的时间。你应该...", a: "make hay while the sun shines", aCn: "抓住时机", opts: [{t:"a rolling stone gathers no moss", c:"滚石不生苔"}, {t:"one swallow does not make a summer", c:"一次成功不代表全部"}], m: "Do work while conditions are favorable.", mCn: "趁条件有利时把工作做完。" },
+    // 1. Out of sight, out of mind
+    { q: "Since they moved to Australia, we rarely talk. It's truly _______.", qCn: "自从他们搬到澳洲后，我们就很少联系了。真是...", a: "out of sight, out of mind", aCn: "眼不见，心不烦", opts: [{t:"make hay while the sun shines", c:"打铁趁热"}, {t:"a bird in hand", c:"一鸟在手"}], m: "You forget people when they are not around.", mCn: "人不在身边，感情就淡了。" },
+    { q: "I forgot I even had those old toys in the attic. _______, I guess.", qCn: "我都忘了阁楼里还有那些旧玩具。大概是...", a: "out of sight, out of mind", aCn: "久不见则不念", opts: [{t:"one swallow does not make a summer", c:"孤燕不成夏"}, {t:"a rolling stone gathers no moss", c:"滚石不生苔"}], m: "If you don't see it, you don't think about it.", mCn: "看不见就不会想起。" },
+    { q: "Working from home is hard because the boss forgets your progress. _______.", qCn: "在家办公很难，因为老板会忘记你的进度。真是...", a: "out of sight, out of mind", aCn: "不在眼前就不被重视", opts: [{t:"people who live in glass houses", c:"责人先责己"}, {t:"make hay while the sun shines", c:"趁热打铁"}], m: "Being absent leads to being forgotten.", mCn: "人不在场容易被忽视。" },
+    
+    // 2. Make hay while the sun shines
+    { q: "The mall is having a 90% discount only for today! You should _______.", qCn: "商场今天只有1折！你应该...", a: "make hay while the sun shines", aCn: "打铁趁热", opts: [{t:"out of sight, out of mind", c:"离久情疏"}, {t:"a bird in hand", c:"一鸟在手"}], m: "Take advantage of a good situation while it lasts.", mCn: "趁着机会还在，赶紧行动。" },
+    { q: "You have plenty of free time before the exams start. _______ and study now!", qCn: "考试前你有充足的时间。你应该...", a: "make hay while the sun shines", aCn: "抓住时机", opts: [{t:"a rolling stone gathers no moss", c:"滚石不生苔"}, {t:"one swallow does not make a summer", c:"一次成功不代表全部"}], m: "Do work while conditions are favorable.", mCn: "趁条件有利时把工作做完。" },
+    { q: "The tourist sites are empty during the weekdays. Let's _______ and visit now.", qCn: "工作日景点没人。让我们...现在就去吧。", a: "make hay while the sun shines", aCn: "见机行事", opts: [{t:"people who live in glass houses", c:"责人先责己"}, {t:"out of sight, out of mind", c:"眼不见为净"}], m: "Act while you have the chance.", mCn: "有空档时赶紧行动。" },
 
-        // 3. One swallow does not make a summer
-        { q: "You won the first round, but there are ten more. Remember, _______.", qCn: "你赢了第一轮，但还有十轮。记住...", a: "one swallow does not make a summer", aCn: "孤燕不成夏 (喻：局部不代表整体)", opts: [{t:"make hay while the sun shines", c:"打铁趁热"}, {t:"out of sight, out of mind", c:"眼不见为净"}], m: "One good sign doesn't mean the whole situation is perfect.", mCn: "看到一个好迹象并不意味着大局已定。" },
+    // 3. One swallow does not make a summer
+    { q: "You won the first round, but there are ten more. Remember, _______.", qCn: "你赢了第一轮，但还有十轮。记住...", a: "one swallow does not make a summer", aCn: "孤燕不成夏", opts: [{t:"make hay while the sun shines", c:"打铁趁热"}, {t:"out of sight, out of mind", c:"眼不见为净"}], m: "One good sign doesn't mean the whole situation is perfect.", mCn: "一个好迹象不代表大功告成。" },
+    { q: "It didn't rain today, but the drought isn't over yet. _______.", qCn: "今天没下雨，但旱情还没结束。毕竟...", a: "one swallow does not make a summer", aCn: "局部不代表整体", opts: [{t:"a bird in hand", c:"一鸟在手"}, {t:"a rolling stone gathers no moss", c:"滚石不生苔"}], m: "A single positive event doesn't guarantee future success.", mCn: "单一的好事不保证结果。" },
+    { q: "The company made a profit this month for the first time in years, but _______.", qCn: "公司多年来首次盈利，但...", a: "one swallow does not make a summer", aCn: "不能盲目乐观", opts: [{t:"make hay while the sun shines", c:"打铁趁热"}, {t:"people who live in glass houses", c:"责人先责己"}], m: "Don't assume a long-term trend from one event.", mCn: "不要从单一事件推断长期趋势。" },
 
-        // 4. A bird in hand is worth two in the bush
-        { q: "I might get a better job later, but I'll take this one. _______.", qCn: "我以后可能会找到更好的工作，但我会先接受这份。毕竟...", a: "a bird in hand is worth two in the bush", aCn: "一鸟在手胜过双鸟在林", opts: [{t:"a rolling stone gathers no moss", c:"滚石不生苔"}, {t:"people who live in glass houses", c:"责人前先想想自己"}], m: "It is better to keep what you have than to risk it for more.", mCn: "握在手里的比未到手的更有价值。" },
+    // 4. A bird in hand is worth two in the bush
+    { q: "I might get a better job later, but I'll take this one. _______.", qCn: "我以后可能找到更好的，但我会先拿这份。毕竟...", a: "a bird in hand is worth two in the bush", aCn: "一鸟在手胜过双鸟在林", opts: [{t:"a rolling stone gathers no moss", c:"滚石不生苔"}, {t:"out of sight, out of mind", c:"离久情疏"}], m: "Keep what you have rather than risking it for more.", mCn: "握在手里的比未到手的更有价值。" },
+    { q: "Don't quit your current role until the new contract is signed. _______.", qCn: "新合同签好前别辞职。毕竟...", a: "a bird in hand is worth two in the bush", aCn: "落袋为安", opts: [{t:"one swallow does not make a summer", c:"孤燕不成夏"}, {t:"make hay while the sun shines", c:"打铁趁热"}], m: "The thing you have is more reliable than possibilities.", mCn: "现有的东西比可能性更可靠。" },
+    { q: "I'll take the $50 prize now instead of waiting for the $100 lucky draw. _______.", qCn: "我现在就要50块奖金，不等100块抽奖了。...", a: "a bird in hand is worth two in the bush", aCn: "实惠胜过虚利", opts: [{t:"people who live in glass houses", c:"责人先责己"}, {t:"a rolling stone gathers no moss", c:"滚石不生苔"}], m: "Certainty is better than a gamble.", mCn: "确定的利益好过博弈。" },
 
-        // 5. People who live in glass houses shouldn't throw stones
-        { q: "She is calling me messy, but her own room is a disaster! _______.", qCn: "她居然说我乱，她自己的房间才是一团糟！真是...", a: "people who live in glass houses shouldn't throw stones", aCn: "责人前先想想自己", opts: [{t:"out of sight, out of mind", c:"离久情疏"}, {t:"make hay while the sun shines", c:"打铁趁热"}], m: "Don't criticize others if you have the same faults.", mCn: "如果你也有同样的缺点，就不要批评别人。" },
+    // 5. People who live in glass houses shouldn't throw stones
+    { q: "She is calling me messy, but her own room is a disaster! _______.", qCn: "她居然说我乱，她房间才是一团糟！真是...", a: "people who live in glass houses shouldn't throw stones", aCn: "责人先责己", opts: [{t:"out of sight, out of mind", c:"离久情疏"}, {t:"make hay while the sun shines", c:"打铁趁热"}], m: "Don't criticize others if you have the same faults.", mCn: "你自己有同样的缺点就别说别人。" },
+    { q: "You are complaining about his late arrival, but you are always late too! _______.", qCn: "你抱怨他迟到，但你自己也经常迟到！...", a: "people who live in glass houses shouldn't throw stones", aCn: "正人先正己", opts: [{t:"a bird in hand", c:"一鸟在手"}, {t:"one swallow does not make a summer", c:"孤燕不成夏"}], m: "Don't be a hypocrite when judging others.", mCn: "批评别人时先看看自己。" },
+    { q: "The politician was caught lying while accusing others of dishonesty. _______.", qCn: "那名政客指责别人不诚实时，自己也被抓到撒谎。...", a: "people who live in glass houses shouldn't throw stones", aCn: "半斤八两", opts: [{t:"a rolling stone gathers no moss", c:"滚石不生苔"}, {t:"make hay while the sun shines", c:"打铁趁热"}], m: "You shouldn't attack others for mistakes you also make.", mCn: "你自己也犯错时，就没资格攻击别人。" },
 
-        // 6. A rolling stone gathers no moss
-        { q: "He changes his job every three months and never saves any money. _______.", qCn: "他每三个月换一次工作，从来存不下钱。真是...", a: "a rolling stone gathers no moss", aCn: "滚石不生苔 (喻：居无定处难成事)", opts: [{t:"a bird in hand", c:"一鸟在手"}, {t:"one swallow does not make a summer", c:"孤燕不成夏"}], m: "A person who never settles will not succeed or grow wealthy.", mCn: "频繁变动的人很难积累财富或成功。" }
-    ],
+    // 6. A rolling stone gathers no moss
+    { q: "He changes his job every three months and never saves any money. _______.", qCn: "他每三个月换一次工作，存不下钱。真是...", a: "a rolling stone gathers no moss", aCn: "滚石不生苔", opts: [{t:"a bird in hand", c:"一鸟在手"}, {t:"one swallow does not make a summer", c:"孤燕不成夏"}], m: "A person who never settles will not succeed.", mCn: "频繁变动的人很难积累成功。" },
+    { q: "Moving from city to city makes it hard to keep long-term friends. _______.", qCn: "频繁在城市间搬家很难交到长久的朋友。...", a: "a rolling stone gathers no moss", aCn: "居无定所难成事", opts: [{t:"out of sight, out of mind", c:"眼不见为净"}, {t:"make hay while the sun shines", c:"打铁趁热"}], m: "Constantly moving prevents one from building roots.", mCn: "不停漂泊就无法扎根。" },
+    { q: "If you keep switching projects, you'll never become an expert. _______.", qCn: "如果你一直换项目，你永远成不了专家。...", a: "a rolling stone gathers no moss", aCn: "专注才能积累", opts: [{t:"people who live in glass houses", c:"责人先责己"}, {t:"one swallow does not make a summer", c:"孤燕不成夏"}], m: "Lack of focus leads to lack of growth.", mCn: "缺乏专注会导致停滞不前。" }
+],
 
     // PREPOSITIONS (Time & Place) - 30 Questions
     // Rule: AT (Specific point/time), ON (Days/Dates/Surfaces), IN (Enclosed space/Long periods)
@@ -488,6 +498,7 @@ function showScore() {
 </body>
 
 </html>
+
 
 
 
