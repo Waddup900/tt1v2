@@ -423,7 +423,7 @@ function startQuiz(cat) {
 
     //branching logic
     if (cat === 'prepositions' || cat === 'compound_adj'){
-        selectedQuestions = [...data].sort(() => Math.random() - 0.5).slice(0.15);
+        selectedQuestions = [...data].sort(() => Math.random() - 0.5).slice(0,15);
     } else {
     // 1. Group questions by their correct answer 'a'
     const grouped = data.reduce((acc, q) => {
@@ -434,7 +434,7 @@ function startQuiz(cat) {
     // 2. Get the unique answer keys and shuffle them
     const uniqueKeys = Object.keys(grouped).sort(() => Math.random() - 0.5);
     // 3. Pick 10 unique keys (or all if less than 10)
-    const selectedKeys = uniqueKeys.slice(0, 10);
+    const selectedKeys = uniqueKeys.slice(0, 15);
     // 4. From each selected key, pick ONE random variation
     currentQuestions = selectedKeys.map(key => {
         const variations = grouped[key];
@@ -540,6 +540,7 @@ function showScore() {
 </body>
 
 </html>
+
 
 
 
