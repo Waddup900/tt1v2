@@ -423,7 +423,7 @@ function startQuiz(cat) {
 
     //branching logic
     if (cat === 'prepositions' || cat === 'compound_adj'){
-        selectedQuestions = [...data].sort(() => Math.random() - 0.5).slice(0,15);
+        selectedQuestions = [...data].sort(() => Math.random() - 0.5).slice(0, 15);
     } else {
     // 1. Group questions by their correct answer 'a'
     const grouped = data.reduce((acc, q) => {
@@ -540,6 +540,7 @@ function showScore() {
 </body>
 
 </html>
+
 
 
 
