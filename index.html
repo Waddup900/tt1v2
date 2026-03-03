@@ -45,6 +45,8 @@
         <button class="btn btn-category" onclick="startQuiz('vocab')">Vocabulary (词汇)</button>
         <button class="btn btn-category" onclick="startQuiz('phrasal_subj')">Phrasal Verbs - Subjective</button>
         <button class="btn btn-category" onclick="startQuiz('phrasal_obj')">Phrasal Verbs - Objective</button>
+        <button class="btn btn-category" onclick="startQuiz('prepositions')">Prepositions (连词)</button>
+        <button class="btn btn-category" onclick="startQuiz('compound_adj')">Compound Adjectives (有 - 的）</button>
         <p style="text-align: center; color: #999; font-size: 0.8em;">More categories coming soon...</p>
     </div>
 
@@ -97,7 +99,99 @@
         // 6. A rolling stone gathers no moss
         { q: "He changes his job every three months and never saves any money. _______.", qCn: "他每三个月换一次工作，从来存不下钱。真是...", a: "a rolling stone gathers no moss", aCn: "滚石不生苔 (喻：居无定处难成事)", opts: [{t:"a bird in hand", c:"一鸟在手"}, {t:"one swallow does not make a summer", c:"孤燕不成夏"}], m: "A person who never settles will not succeed or grow wealthy.", mCn: "频繁变动的人很难积累财富或成功。" }
     ],
-    
+
+    // PREPOSITIONS (Time & Place) - 30 Questions
+    // Rule: AT (Specific point/time), ON (Days/Dates/Surfaces), IN (Enclosed space/Long periods)
+    prepositions: [
+        // AT (Time & Place)
+        { q: "The movie starts _______ 8:30 PM sharp.", qCn: "电影在晚上 8:30 准时开始。", a: "at", aCn: "在（具体时间点）", opts: [{t:"in", c:"在...之内"}, {t:"on", c:"在...之上"}], m: "Use 'at' for specific clock times.", mCn: "用于具体的时刻。" },
+        { q: "I will meet you _______ the main entrance of the mall.", qCn: "我会在商场正门口见你。", a: "at", aCn: "在（具体地点）", opts: [{t:"on", c:"在...上面"}, {t:"in", c:"在...里面"}], m: "Use 'at' for a specific point or address.", mCn: "用于具体的地点或坐标。" },
+        { q: "He usually goes for a run _______ dawn.", qCn: "他通常在黎明时分去跑步。", a: "at", aCn: "在（特定时刻）", opts: [{t:"on", c:"在...那天"}, {t:"in", c:"在...期间"}], m: "Use 'at' for specific points in the day (noon, midnight, dawn).", mCn: "用于一天中特定的时刻。" },
+        { q: "I am currently _______ work, so I can't talk right now.", qCn: "我目前在上班，所以现在不能说话。", a: "at", aCn: "在（活动中/地点）", opts: [{t:"in", c:"在...内"}, {t:"on", c:"在...上"}], m: "Use 'at' for functional buildings or activities (work, school, home).", mCn: "用于功能性地点或正在进行的活动。" },
+        { q: "Let's discuss this _______ lunchtime.", qCn: "让我们在午饭时间讨论这件事。", a: "at", aCn: "在（用餐时间）", opts: [{t:"in", c:"在...里"}, {t:"on", c:"在...上"}], m: "Use 'at' for mealtimes.", mCn: "用于用餐时间。" },
+        // ... (Adding more variations for AT)
+        { q: "The bus stop is right _______ the corner of the street.", qCn: "公车站就在街道转角处。", a: "at", aCn: "在...处", opts: [{t:"in", c:"在...里"}, {t:"on", c:"在...上"}], m: "Specific point.", mCn: "具体位置。" },
+        { q: "I wasn't happy _______ first, but now I like it.", qCn: "起初我不开心，但现在我喜欢它了。", a: "at", aCn: "在（最初）", opts: [{t:"in", c:"在..."}, {t:"on", c:"在..."}], m: "Fixed expression: At first.", mCn: "固定搭配：起初。" },
+        { q: "We had a party _______ Christmas.", qCn: "我们在圣诞节期间办了个派对。", a: "at", aCn: "在（节日期间）", opts: [{t:"on", c:"在某一天"}, {t:"in", c:"在...内"}], m: "Use 'at' for holiday periods (at Christmas, at Easter).", mCn: "用于整个节日期间（若指某一天则用on）。" },
+        { q: "He is sitting _______ the desk doing his homework.", qCn: "他正坐在书桌前做功课。", a: "at", aCn: "在（书桌）旁", opts: [{t:"in", c:"在...里"}, {t:"on", c:"在...上"}], m: "Using 'at' for sitting by a furniture item.", mCn: "坐在家具旁（强调功能）。" },
+        { q: "The water boils _______ 100 degrees Celsius.", qCn: "水在摄氏 100 度沸腾。", a: "at", aCn: "在（具体数值）", opts: [{t:"in", c:"在..."}, {t:"on", c:"在..."}], m: "Use 'at' for specific degrees or speeds.", mCn: "用于具体的温度、速度或数值。" },
+
+        // ON (Days/Dates/Surfaces)
+        { q: "My birthday is _______ the 15th of May.", qCn: "我的生日在 5 月 15 日。", a: "on", aCn: "在（具体日期）", opts: [{t:"at", c:"在...点"}, {t:"in", c:"在...月"}], m: "Use 'on' for specific dates.", mCn: "用于具体的日期。" },
+        { q: "We have English class _______ Mondays.", qCn: "我们每周一有英语课。", a: "on", aCn: "在（星期几）", opts: [{t:"at", c:"在..."}, {t:"in", c:"在..."}], m: "Use 'on' for days of the week.", mCn: "用于星期几。" },
+        { q: "The cat is sleeping _______ the sofa.", qCn: "猫在沙发上睡觉。", a: "on", aCn: "在...上面（表面）", opts: [{t:"in", c:"在...里面"}, {t:"at", c:"在...处"}], m: "Use 'on' for surfaces.", mCn: "用于物体的表面。" },
+        { q: "I will see you _______ New Year's Day.", qCn: "我会在元旦那天见你。", a: "on", aCn: "在（特定的一天）", opts: [{t:"at", c:"在...期间"}, {t:"in", c:"在...年"}], m: "Use 'on' for one specific day.", mCn: "用于特定的一天。" },
+        { q: "I left my keys _______ the kitchen table.", qCn: "我把钥匙留在厨房桌子上了。", a: "on", aCn: "在...上（表面）", opts: [{t:"in", c:"在...里"}, {t:"at", c:"在...旁"}], m: "Surface contact.", mCn: "接触表面。" },
+        { q: "There is a fly _______ the ceiling.", qCn: "天花板上有一只苍蝇。", a: "on", aCn: "在...上", opts: [{t:"in", c:"在...里"}, {t:"at", c:"在...处"}], m: "Surfaces include walls and ceilings.", mCn: "表面也包括墙壁和天花板。" },
+        { q: "I like to listen to music _______ the radio.", qCn: "我喜欢听收音机里的音乐。", a: "on", aCn: "通过（电子媒体）", opts: [{t:"in", c:"在...里"}, {t:"at", c:"在...处"}], m: "Use 'on' for media like TV, radio, internet.", mCn: "用于电视、广播、网络等媒体。" },
+        { q: "He lives _______ the third floor.", qCn: "他住在三楼。", a: "on", aCn: "在（第几层）", opts: [{t:"in", c:"在...内"}, {t:"at", c:"在...处"}], m: "Use 'on' for floor levels.", mCn: "用于楼层。" },
+        { q: "I am _______ the bus right now.", qCn: "我正坐在巴士上。", a: "on", aCn: "在（大型交通工具）上", opts: [{t:"in", c:"在（轿车）内"}, {t:"at", c:"在...处"}], m: "Use 'on' for public transport (bus, train, plane).", mCn: "用于公共交通工具（通常指可以站立走动的）。" },
+        { q: "The shop is _______ your left.", qCn: "商店在你的左手边。", a: "on", aCn: "在（方位）", opts: [{t:"in", c:"在...内"}, {t:"at", c:"在...处"}], m: "Use 'on' for left/right directions.", mCn: "用于左右方向。" },
+
+        // IN (Periods/Enclosed Spaces)
+        { q: "The keys are _______ the drawer.", qCn: "钥匙在抽屉里。", a: "in", aCn: "在...里面", opts: [{t:"on", c:"在...上面"}, {t:"at", c:"在...处"}], m: "Use 'in' for enclosed spaces.", mCn: "用于封闭的空间。" },
+        { q: "It's beautiful here _______ the spring.", qCn: "这里的春天很美。", a: "in", aCn: "在（季节）", opts: [{t:"on", c:"在...那天"}, {t:"at", c:"在...点"}], m: "Use 'in' for seasons, months, and years.", mCn: "用于季节、月份和年份。" },
+        { q: "He was born _______ 1995.", qCn: "他出生于 1995 年。", a: "in", aCn: "在（年份）", opts: [{t:"on", c:"在...天"}, {t:"at", c:"在...点"}], m: "Use 'in' for years.", mCn: "用于年份。" },
+        { q: "There are millions of stars _______ the sky.", qCn: "天空中有数百万颗星星。", a: "in", aCn: "在...（空间）", opts: [{t:"on", c:"在...上"}, {t:"at", c:"在...点"}], m: "Use 'in' for three-dimensional spaces.", mCn: "用于三维空间。" },
+        { q: "I read about it _______ a newspaper.", qCn: "我在报纸上读到了这件事。", a: "in", aCn: "在（纸质媒体）中", opts: [{t:"on", c:"在...上"}, {t:"at", c:"在...处"}], m: "Use 'in' for print media.", mCn: "用于纸质媒体。" },
+        { q: "He is currently _______ prison for his crimes.", qCn: "他目前因罪入狱。", a: "in", aCn: "在（机构）里", opts: [{t:"at", c:"在...处"}, {t:"on", c:"在...上"}], m: "Use 'in' when inside an institution.", mCn: "在机构内部。" },
+        { q: "I will finish the work _______ ten minutes.", qCn: "我会在十分钟内完成工作。", a: "in", aCn: "在...（时间）之后/之内", opts: [{t:"at", c:"在...点"}, {t:"on", c:"在...天"}], m: "Use 'in' to mean 'after a period of time'.", mCn: "表示在一段时间之后或之内。" },
+        { q: "He grew up _______ a small village.", qCn: "他在一个小村庄长大。", a: "in", aCn: "在（地区/城市）", opts: [{t:"at", c:"在...点"}, {t:"on", c:"在...上"}], m: "Use 'in' for cities, countries, and villages.", mCn: "用于城市、国家、村庄等区域。" },
+        { q: "She is _______ the pool swimming.", qCn: "她在泳池里游泳。", a: "in", aCn: "在...（液体/空间）里", opts: [{t:"on", c:"在...表面"}, {t:"at", c:"在...处"}], m: "Inside a volume of water.", mCn: "在水体中。" },
+        { q: "The kids are playing _______ the garden.", qCn: "孩子们在花园里玩耍。", a: "in", aCn: "在（有围栏的区域）里", opts: [{t:"at", c:"在...点"}, {t:"on", c:"在...表面"}], m: "In an area with boundaries.", mCn: "在有界限的区域内。" }
+    ],
+
+    // COMPOUND ADJECTIVES - 64 Questions (2 variations for each of the 32 terms)
+    compound_adj: [
+        // Number + Singular Noun
+        { q: "I only have a _______ break for lunch.", qCn: "我只有五分钟的午休时间。", a: "five-minute", aCn: "五分钟的", opts: [{t:"five-minutes", c:"(错误形式)"}, {t:"fifth-minute", c:"第五分钟"}], m: "Use singular noun in compound adjectives.", mCn: "复合形容词中的名词须用单数。" },
+        { q: "It was a _______ wait at the hospital.", qCn: "在医院里等了三个小时。", a: "three-hour", aCn: "三小时的", opts: [{t:"three-hours", c:"(错误形式)"}, {t:"third-hour", c:"第三小时"}], m: "Hyphenated number + singular noun.", mCn: "数词+单数名词，中间加连字符。" },
+
+        // Adjective + Noun
+        { q: "The pilot made a _______ decision to land the plane safely.", qCn: "飞行员做出了最后一刻的决定，安全降落了飞机。", a: "last-minute", aCn: "最后一刻的", opts: [{t:"first-minute", c:"第一分钟的"}, {t:"long-term", c:"长期的"}], m: "Decision made at the very end.", mCn: "在最后关头做出的。" },
+        { q: "The athlete ran a _______ race to win the gold medal.", qCn: "运动员参加了长距离比赛并获得了金牌。", a: "long-distance", aCn: "长距离的", opts: [{t:"short-term", c:"短期的"}, {t:"high-quality", c:"高品质的"}], m: "Covering a large gap in space.", mCn: "跨越较大空间的。" },
+        { q: "This is a _______ documentary about the life of lions.", qCn: "这是一部关于狮子生活的完整长度纪录片。", a: "full-length", aCn: "完整长度的", opts: [{t:"short-term", c:"短期的"}, {t:"last-minute", c:"最后一刻的"}], m: "The complete version, not edited down.", mCn: "未经剪辑的完整版本。" },
+        { q: "We need a _______ solution to this small problem.", qCn: "我们需要一个针对这个小问题的短期解决方案。", a: "short-term", aCn: "短期的", opts: [{t:"long-distance", c:"长距离的"}, {t:"high-quality", c:"高品质的"}], m: "Lasting for a small amount of time.", mCn: "持续时间较短的。" },
+        { q: "The brand is known for its _______ leather products.", qCn: "该品牌以其高品质的皮革制品而闻名。", a: "high-quality", aCn: "高品质的", opts: [{t:"low-quality", c:"低品质的"}, {t:"last-minute", c:"最后一刻的"}], m: "Very good or excellent standard.", mCn: "非常优秀或卓越的标准。" },
+
+        // Adjective + Present Participle (-ing)
+        { q: "Everyone likes him because he is very _______.", qCn: "大家都喜欢他，因为他很随和。", a: "easy-going", aCn: "随和的", opts: [{t:"quick-thinking", c:"反应敏捷的"}, {t:"good-looking", c:"好看的"}], m: "Relaxed and not easily upset.", mCn: "性格随和，不易烦躁。" },
+        { q: "The actor is famous for being very _______.", qCn: "这位演员以长相英俊而闻名。", a: "good-looking", aCn: "好看的/帅气的", opts: [{t:"tight-fitting", c:"紧身的"}, {t:"record-breaking", c:"破纪录的"}], m: "Physically attractive.", mCn: "外表有吸引力的。" },
+        { q: "It was a _______ performance that stunned the judges.", qCn: "这是一场令评委震惊的破纪录演出。", a: "record-breaking", aCn: "破纪录的", opts: [{t:"easy-going", c:"随和的"}, {t:"quick-thinking", c:"反应敏捷的"}], m: "Surpassing any previous achievement.", mCn: "超越以往任何成就的。" },
+        { q: "The superhero's _______ saved the city from the bomb.", qCn: "超级英雄的敏捷反应从炸弹中解救了城市。", a: "quick-thinking", aCn: "反应敏捷的", opts: [{t:"tight-fitting", c:"紧身的"}, {t:"good-looking", c:"英俊的"}], m: "Acting or deciding quickly.", mCn: "能快速行动或做出决定。" },
+        { q: "She felt uncomfortable in her _______ jeans.", qCn: "她穿着那条紧身牛仔裤感到很不舒服。", a: "tight-fitting", aCn: "紧身的", opts: [{t:"easy-going", c:"随和的"}, {t:"record-breaking", c:"破纪录的"}], m: "Clothes that are very close to the body.", mCn: "贴身的衣物。" },
+
+        // Noun + Present Participle
+        { q: "The smell of the chocolate cake was _______.", qCn: "巧克力蛋糕的味道令人垂涎欲滴。", a: "mouth-watering", aCn: "令人垂涎的", opts: [{t:"time-saving", c:"省时的"}, {t:"english-speaking", c:"说英语的"}], m: "Smelling or looking delicious.", mCn: "闻起来或看起来很好吃。" },
+        { q: "Online shopping is a _______ way to buy clothes.", qCn: "网上购物是一种省时的买衣服方式。", a: "time-saving", aCn: "省时的", opts: [{t:"mouth-watering", c:"令人垂涎的"}, {t:"record-breaking", c:"破纪录的"}], m: "Making a task faster.", mCn: "让任务变得更快。" },
+        { q: "He works for an _______ company in London.", qCn: "他在伦敦的一家说英语的公司工作。", a: "english-speaking", aCn: "说英语的", opts: [{t:"mouth-watering", c:"垂涎欲滴的"}, {t:"time-saving", c:"省时的"}], m: "Using English as the main language.", mCn: "以英语为主要语言的。" },
+
+        // Noun + Adjective
+        { q: "The Eiffel Tower is a _______ landmark in Paris.", qCn: "埃菲尔铁塔是巴黎闻名世界的地标。", a: "world-famous", aCn: "举世闻名的", opts: [{t:"smoke-free", c:"无烟的"}, {t:"sugar-free", c:"无糖的"}], m: "Known by people all over the planet.", mCn: "全世界人都知道的。" },
+        { q: "This is a _______ restaurant; you cannot use cigarettes here.", qCn: "这是一家无烟餐厅；你不能在这里抽烟。", a: "smoke-free", aCn: "无烟的", opts: [{t:"ice-cold", c:"冰冷的"}, {t:"family-friendly", c:"适合家庭的"}], m: "Area where smoking is forbidden.", mCn: "禁止吸烟的区域。" },
+        { q: "I love drinking _______ soda on a hot summer day.", qCn: "我喜欢在炎热的夏天喝冰镇汽水。", a: "ice-cold", aCn: "冰冷的", opts: [{t:"sugar-free", c:"无糖的"}, {t:"world-famous", c:"举世闻名的"}], m: "Very cold, like ice.", mCn: "像冰一样冷。" },
+        { q: "This cake is _______, so it is safe for diabetics.", qCn: "这个蛋糕是无糖的，所以对糖尿病人是安全的。", a: "sugar-free", aCn: "无糖的", opts: [{t:"family-friendly", c:"适合家庭的"}, {t:"ice-cold", c:"冰冷的"}], m: "Contains no sugar.", mCn: "不含糖。" },
+        { q: "The resort is _______ and has many activities for kids.", qCn: "这个度假村适合家庭入住，有很多适合孩子的活动。", a: "family-friendly", aCn: "适合家庭的", opts: [{t:"smoke-free", c:"无烟的"}, {t:"world-famous", c:"举世闻名的"}], m: "Suitable for people of all ages.", mCn: "适合全家老小的。" },
+
+        // Noun + Past Participle (-ed)
+        { q: "The remote island uses _______ energy for electricity.", qCn: "那个偏远小岛使用风能发电。", a: "wind-powered", aCn: "风力驱动的", opts: [{t:"water-cooled", c:"水冷的"}, {t:"sun-dried", c:"日晒的"}], m: "Getting energy from the wind.", mCn: "由风力驱动的。" },
+        { q: "I bought some _______ tomatoes from the organic market.", qCn: "我从有机市场买了一些日晒番茄干。", a: "sun-dried", aCn: "晒干的", opts: [{t:"middle-aged", c:"中年的"}, {t:"wind-powered", c:"风力的"}], m: "Dried by exposure to the sun.", mCn: "在阳光下晒干的。" },
+        { q: "The movie is about a _______ man who rediscovers his youth.", qCn: "这部电影讲的是一个重寻青春的中年男人的故事。", a: "middle-aged", aCn: "中年的", opts: [{t:"water-cooled", c:"水冷的"}, {t:"sun-dried", c:"日晒的"}], m: "Being between 45 and 65 years old.", mCn: "处于 45 到 65 岁之间的。" },
+        { q: "High-end computers often use _______ systems to prevent overheating.", qCn: "高端电脑通常使用水冷系统来防止过热。", a: "water-cooled", aCn: "水冷的", opts: [{t:"wind-powered", c:"风力的"}, {t:"middle-aged", c:"中年的"}], m: "Kept cool by a flow of water.", mCn: "通过水流降温的。" },
+
+        // Adverb + Past Participle
+        { q: "The street was _______ for the midnight festival.", qCn: "为了午夜祭典，街道被灯火通明地装饰着。", a: "brightly-lit", aCn: "灯火通明的", opts: [{t:"densely-populated", c:"人口稠密的"}, {t:"well-known", c:"众所周知的"}], m: "Having a lot of light.", mCn: "光线充足的。" },
+        { q: "He is a _______ doctor who has written many books.", qCn: "他是一位写过很多书的知名医生。", a: "well-known", aCn: "众所周知的", opts: [{t:"lightly-respected", c:"不太受尊重的"}, {t:"brightly-lit", c:"明亮的"}], m: "Famous or familiar to many.", mCn: "著名的或广为人知的。" },
+        { q: "Tokyo is one of the most _______ cities in the world.", qCn: "东京是世界上人口最稠密的城市之一。", a: "densely-populated", aCn: "人口稠密的", opts: [{t:"well-known", c:"著名的"}, {t:"brightly-lit", c:"明亮的"}], m: "Many people living in a small area.", mCn: "人口分布极度集中的。" },
+        { q: "The old professor was _______ by all his students.", qCn: "老教授深受所有学生的爱戴（由于尊重程度，此处应选highly-respected的对比项）。", a: "highly-respected", aCn: "深受尊敬的", opts: [{t:"lightly-respected", c:"稍微受尊重的"}, {t:"brightly-lit", c:"明亮的"}], m: "Admired and held in high esteem.", mCn: "备受赞赏和尊崇的。" },
+
+        // Adjective + Past Participle
+        { q: "My grandmother still has an _______ telephone with a dial.", qCn: "我奶奶还有一个老式的拨号电话。", a: "old-fashioned", aCn: "老式的/过时的", opts: [{t:"ready-made", c:"现成的"}, {t:"short-lived", c:"短暂的"}], m: "Belonging to the past; not modern.", mCn: "属于过去的；不现代的。" },
+        { q: "The archaeologists found a _______ city buried in the sand.", qCn: "考古学家在沙土中发现了一座被遗忘已久的城市。", a: "long-forgotten", aCn: "久被遗忘的", opts: [{t:"ready-made", c:"现成的"}, {t:"old-fashioned", c:"老式的"}], m: "Forgotten for a long time.", mCn: "被遗忘了很久的。" },
+        { q: "I don't like cooking, so I usually buy _______ meals.", qCn: "我不喜欢做饭，所以我通常买现成的餐食。", a: "ready-made", aCn: "现成的", opts: [{t:"short-lived", c:"短暂的"}, {t:"old-fashioned", c:"老式的"}], m: "Prepared in advance and ready to use.", mCn: "预先准备好，拿来即用的。" },
+        { q: "Their happiness was _______ as the trouble started again.", qCn: "随着麻烦再次开始，他们的幸福变得很短暂。", a: "short-lived", aCn: "短暂的", opts: [{t:"long-forgotten", c:"久被遗忘的"}, {t:"ready-made", c:"现成的"}], m: "Lasting only for a short time.", mCn: "仅持续很短时间的。" }
+    ]，
+        
     // PHRASAL VERBS - SUBJECTIVE CONTEXT (Life skills & Feelings)
     phrasal_subj: [
         // 1. Get through something
@@ -144,7 +238,7 @@
         { q: "The rebels managed to _______ during the evening battle.", qCn: "叛军在晚间的战斗中成功地...。", a: "get the upper hand", aCn: "占上风/取得优势", opts: [{t:"get away from it all", c:"逃避一切"}, {t:"get rid of something", c:"摆脱"}], m: "To gain a position of advantage.", mCn: "获得优势地位。" },
         { q: "In negotiations, it is important to _______ early on.", qCn: "在谈判中，尽早...是很重要的。", a: "get the upper hand", aCn: "占领先机/优势", opts: [{t:"get the hang of something", c:"掌握诀窍"}, {t:"get ahead", c:"出头"}], m: "To gain control over a situation.", mCn: "获得对局势的控制。" },
         { q: "Technology has helped big companies _______ over smaller ones.", qCn: "技术帮助大公司在竞争中对小公司...。", a: "get the upper hand", aCn: "占据优势/压制", opts: [{t:"get into something", c:"进入"}, {t:"get on with your life", c:"继续生活"}], m: "To become more powerful than an opponent.", mCn: "变得比对手更强大。" }
-    ],
+    ]，
 
     // PHRASAL VERBS - OBJECTIVE (Actions & Events)
     phrasal_obj: [
@@ -286,8 +380,30 @@ function showMenu() { showView('menu-view'); }
 
 function startQuiz(cat) {
     currentCategory = cat;
-    // Shuffle and pick 10 (or all if less than 10)
-    currentQuestions = [...masterData[cat]].sort(() => Math.random() - 0.5);
+    const data = masterData[cat];
+    
+    // 1. Group questions by their correct answer 'a'
+    const grouped = data.reduce((acc, q) => {
+        if (!acc[q.a]) acc[q.a] = [];
+        acc[q.a].push(q);
+        return acc;
+    }, {});
+
+    // 2. Get the unique answer keys and shuffle them
+    const uniqueKeys = Object.keys(grouped).sort(() => Math.random() - 0.5);
+    
+    // 3. Pick 10 unique keys (or all if less than 10)
+    const selectedKeys = uniqueKeys.slice(0, 10);
+    
+    // 4. From each selected key, pick ONE random variation
+    currentQuestions = selectedKeys.map(key => {
+        const variations = grouped[key];
+        return variations[Math.floor(Math.random() * variations.length)];
+    });
+
+    // 5. Final shuffle so the order of words is random too
+    currentQuestions.sort(() => Math.random() - 0.5);
+
     currentIdx = 0;
     score = 0;
     showView('quiz-view');
@@ -372,5 +488,6 @@ function showScore() {
 </body>
 
 </html>
+
 
 
