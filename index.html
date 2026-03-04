@@ -436,7 +436,7 @@ function startQuiz(cat) {
     // 3. Pick 10 unique keys (or all if less than 10)
     const selectedKeys = uniqueKeys.slice(0, 15);
     // 4. From each selected key, pick ONE random variation
-    currentQuestions = selectedKeys.map(key => {
+    selectedQuestions = selectedKeys.map(key => {
         const variations = grouped[key];
         return variations[Math.floor(Math.random() * variations.length)];
     });
@@ -543,6 +543,7 @@ function showScore() {
 </body>
 
 </html>
+
 
 
 
